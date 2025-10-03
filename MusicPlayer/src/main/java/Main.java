@@ -1,8 +1,8 @@
-import Controller.Actions.Action;
-import Controller.Actions.ActionMapper;
-import Controller.Actions.DoubleVolumeAction;
-import Controller.MusicalContext;
-import Controller.Player;
+import controller.actions.Action;
+import controller.actions.ActionMapper;
+import controller.actions.DoubleVolumeAction;
+import controller.MusicalContext;
+import controller.Player;
 
 public class Main {
 

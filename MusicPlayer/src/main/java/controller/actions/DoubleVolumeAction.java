@@ -1,7 +1,6 @@
-package Controller.Actions;
+package controller.actions;
 
-import Controller.MusicalContext;
-import Controller.Player;
+import controller.MusicalContext;
 
 public class DoubleVolumeAction extends Action{
 

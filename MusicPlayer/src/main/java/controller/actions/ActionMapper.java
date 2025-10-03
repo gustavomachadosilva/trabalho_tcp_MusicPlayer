@@ -1,6 +1,4 @@
-package Controller.Actions;
-
-import Controller.MusicalContext;
+package controller.actions;
 
 import java.util.HashMap;
 import java.util.Map;
