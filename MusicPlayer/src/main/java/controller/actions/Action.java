@@ -1,6 +1,6 @@
 package controller.actions;
 
-import controller.MusicalContext;
+import model.MusicalContext;
 
 public class Action {
 

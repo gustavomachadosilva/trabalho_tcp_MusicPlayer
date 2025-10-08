@@ -1,6 +1,7 @@
 package controller.actions;
 
-import controller.MusicalContext;
+import model.MusicalContext;
+import model.Volume;
 
 public class DoubleVolumeAction extends Action{
 
@@ -10,12 +11,14 @@ public class DoubleVolumeAction extends Action{
 
     @Override
     public void execute() {
-        int currentVolume = getMusicalContext().getVolume();
-        int maxVolume = getMusicalContext().getMaxVolume();
+        Volume volume;
+        volume = getMusicalContext().getVolume();
+        int currentVolume = volume.getCurrentVolume();
+        int maxVolume = volume.getMaxVolume();
 
         int doubledVolume = currentVolume * 2;
 
-        getMusicalContext().setVolume(Math.min(doubledVolume, maxVolume));
+        volume.setCurrentVolume(Math.min(doubledVolume, maxVolume));
 
     }
 }
