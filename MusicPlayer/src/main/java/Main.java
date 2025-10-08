@@ -1,8 +1,8 @@
 import controller.actions.Action;
 import controller.actions.ActionMapper;
 import controller.actions.DoubleVolumeAction;
-import controller.MusicalContext;
-import controller.Player;
+import model.MusicalContext;
+import model.Player;
 
 public class Main {
 

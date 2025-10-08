@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import controller.instruments.Instrument;
 import controller.notes.Note;
