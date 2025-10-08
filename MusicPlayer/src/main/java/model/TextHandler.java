@@ -15,6 +15,7 @@ public class TextHandler {
     public static final int INSTRUMENT_TUBULAR_BELLS = 15;
     public static final int INSTRUMENT_AGOGO = 114;
     public static final int INSTRUMENT_ONDAS_DO_MAR = 123;
+    public static final int INSTRUMENT_GAITA_DE_FOLES = 110;
 
     // ===========================
     // CONSTANTES DE CONFIGURAÇÃO
@@ -44,8 +45,8 @@ public class TextHandler {
     public void playText(String text) {
         try {
             for (char c : text.toCharArray()) {
-                processChar(c);
                 lastChar = c;
+                processChar(c);
                 Thread.sleep(200); // pequena pausa entre notas
             }
         } catch (Exception e) {
@@ -86,6 +87,9 @@ public class TextHandler {
 
     private void handleSpecialChar(char c) {
         switch (c) {
+            case 'O': case 'o': case 'I': case 'i': case 'U': case 'u':
+                instrument = INSTRUMENT_GAITA_DE_FOLES;
+                break;
             case '!':
                 instrument = INSTRUMENT_BANDONEON;
                 break;
