@@ -1,4 +1,4 @@
-package controller.instruments;
+package model.instruments;
 
 public class Instrument {
 
