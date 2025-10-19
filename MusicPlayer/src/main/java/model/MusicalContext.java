@@ -1,7 +1,7 @@
 package model;
 
-import controller.instruments.Instrument;
-import controller.notes.Note;
+import model.instruments.Instrument;
+import model.notes.Note;
 
 public class MusicalContext {
 

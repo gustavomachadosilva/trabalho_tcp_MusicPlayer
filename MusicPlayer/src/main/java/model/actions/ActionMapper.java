@@ -1,4 +1,4 @@
-package controller.actions;
+package model.actions;
 
 import java.util.HashMap;
 import java.util.Map;

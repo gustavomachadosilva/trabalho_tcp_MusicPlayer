@@ -1,4 +1,4 @@
-package controller.notes;
+package model.notes;
 
 public class Note {
 

@@ -1,6 +1,6 @@
-import controller.actions.Action;
-import controller.actions.ActionMapper;
-import controller.actions.DoubleVolumeAction;
+import model.actions.Action;
+import model.actions.ActionMapper;
+import model.actions.DoubleVolumeAction;
 import model.MusicalContext;
 import model.Player;
 
