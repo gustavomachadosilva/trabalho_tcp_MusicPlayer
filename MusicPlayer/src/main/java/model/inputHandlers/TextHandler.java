@@ -1,5 +1,5 @@
-package model;
-import static model.Constants.*;
+package model.inputHandlers;
+import static model.inputHandlers.Constants.*;
 
 public class TextHandler {
 

@@ -1,4 +1,4 @@
-package model;
+package model.inputHandlers;
 
 public class FileHandler {
 }
