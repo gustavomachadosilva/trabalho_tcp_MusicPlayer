@@ -11,10 +11,10 @@ public class MusicalContext {
     private Instrument instrument;
     private Volume volume;
 
-    public MusicalContext(Notes note, Instruments instrument, int volume, int maxVolume, int octave, int duration) {
-        this.note = new Note(note, octave, duration);
-        this.instrument = new Instrument(instrument);
-        this.volume = new Volume(volume, maxVolume);
+    public MusicalContext(Note note, Instrument instrument, Volume volume) {
+        this.note = note;
+        this.instrument = instrument;
+        this.volume = volume;
     }
 
     public Note getNote() {

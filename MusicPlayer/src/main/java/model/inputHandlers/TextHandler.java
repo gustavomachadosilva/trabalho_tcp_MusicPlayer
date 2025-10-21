@@ -18,7 +18,7 @@ public class TextHandler {
 
     public char getNextChar() {
 
-        if ( this.currentChar < this.text.length()) {
+        if ( this.hasNextChar()) {
             char nextChar = this.text.charAt(currentChar);
 
             this.currentChar += 1;
@@ -27,6 +27,10 @@ public class TextHandler {
 
         return TEXT_END;
 
+    }
+
+    public boolean hasNextChar() {
+        return this.currentChar < this.text.length();
     }
 
 }
