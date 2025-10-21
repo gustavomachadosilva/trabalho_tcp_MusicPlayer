@@ -1,26 +1,14 @@
-import model.actions.Action;
-import model.actions.ActionMapper;
-import model.actions.DoubleVolumeAction;
-import model.MusicalContext;
-import model.Player;
+import model.notes.Note;
+import model.notes.Notes;
 
 public class Main {
 
     public static void main(String[] args) {
-        MusicalContext musicalContext = new MusicalContext(1, 1, 1, 1, 1);
-        Player player = new Player(musicalContext);
 
-        ActionMapper actionMapper = new ActionMapper();
+        Note note = new Note(Notes.LA, 5, 500);
 
-        Action currentAction;
-        DoubleVolumeAction doubleVolumeAction = new DoubleVolumeAction(musicalContext);
+        System.out.println(note.getMidiCode());
 
-        actionMapper.assignActionToAKey("a", doubleVolumeAction);
-
-        currentAction = actionMapper.getAction("a");
-        currentAction.execute();
-
-        player.play();
     }
 
 }
