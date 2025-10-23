@@ -1,21 +1,32 @@
-package controller;
+package model.actions;
 
 import model.MusicalContext;
-import model.actions.*;
 
-public class ActionTest {
+public class ActionHandler {
 
-    MusicalContext musicalContext = new MusicalContext(1, 1, 1, 1, 1);
-    ActionMapper actionMapper = new ActionMapper();
-    ChangeNoteAction changeNoteAction = new ChangeNoteAction(musicalContext);
-    DoubleVolumeAction doubleVolumeAction = new DoubleVolumeAction(musicalContext);
-    IncreaseOctaveAction increaseOctaveAction = new IncreaseOctaveAction(musicalContext);
-    LowerOctaveAction lowerOctaveAction = new LowerOctaveAction(musicalContext);
-    RepeatNoteAction repeatNoteAction = new RepeatNoteAction(musicalContext);
-    RandomNoteAction randomNoteAction = new RandomNoteAction(musicalContext);
-    ChangeInstrumentAction changeInstrumentAction = new ChangeInstrumentAction(musicalContext);
-    IncreaseBpmAction increaseBpmAction = new IncreaseBpmAction(musicalContext);
-    PauseAction pauseAction = new PauseAction(musicalContext);
+
+    private ActionMapper actionMapper = new ActionMapper();
+    private ChangeNoteAction changeNoteAction;
+    private DoubleVolumeAction doubleVolumeAction;
+    private IncreaseOctaveAction increaseOctaveAction;
+    private LowerOctaveAction lowerOctaveAction;
+    private RepeatNoteAction repeatNoteAction;
+    private RandomNoteAction randomNoteAction;
+    private ChangeInstrumentAction changeInstrumentAction;
+    private IncreaseBpmAction increaseBpmAction;
+    private PauseAction pauseAction;
+
+    public ActionHandler(MusicalContext musicalContext) {
+        this.changeNoteAction = new ChangeNoteAction(musicalContext);
+        this.doubleVolumeAction = new DoubleVolumeAction(musicalContext);
+        this.increaseOctaveAction = new IncreaseOctaveAction(musicalContext);
+        this.lowerOctaveAction = new LowerOctaveAction(musicalContext);
+        this.repeatNoteAction = new RepeatNoteAction(musicalContext);
+        this.randomNoteAction = new RandomNoteAction(musicalContext);
+        this.changeInstrumentAction = new ChangeInstrumentAction(musicalContext);
+        this.increaseBpmAction = new IncreaseBpmAction(musicalContext);
+        this.pauseAction = new PauseAction(musicalContext);
+    }
 
     public void doMap() {
         actionMapper.assignActionToAKey("A", changeNoteAction);
@@ -60,4 +71,7 @@ public class ActionTest {
 
     }
 
+    public ActionMapper getActionMapper() {
+        return actionMapper;
+    }
 }
