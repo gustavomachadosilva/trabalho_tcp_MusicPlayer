@@ -3,10 +3,10 @@ package model.notes;
 public class Note {
 
     private int octave;
-    private float duration;
+    private int duration;
     private int midiCode;
 
-    public Note(Notes note, int octave, float duration) {
+    public Note(Notes note, int octave, int duration) {
         this.octave = octave;
         this.duration = duration;
 
@@ -17,7 +17,7 @@ public class Note {
         return octave;
     }
 
-    public float getDuration() {
+    public int getDuration() {
         return duration;
     }
 

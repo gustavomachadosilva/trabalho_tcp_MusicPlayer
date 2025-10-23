@@ -26,9 +26,11 @@ public class ActionHandler {
         this.changeInstrumentAction = new ChangeInstrumentAction(musicalContext);
         this.increaseBpmAction = new IncreaseBpmAction(musicalContext);
         this.pauseAction = new PauseAction(musicalContext);
+
+        this.doMap();
     }
 
-    public void doMap() {
+    private void doMap() {
         actionMapper.assignActionToAKey("A", changeNoteAction);
         actionMapper.assignActionToAKey("B", changeNoteAction);
         actionMapper.assignActionToAKey("C", changeNoteAction);
