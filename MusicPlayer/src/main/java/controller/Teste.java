@@ -27,7 +27,6 @@ public class Teste {
 
     public void testar() {
 
-        actionHandler.doMap();
         ActionMapper actionMapper = actionHandler.getActionMapper();
 
         while (textHandler.hasNextChar()) {

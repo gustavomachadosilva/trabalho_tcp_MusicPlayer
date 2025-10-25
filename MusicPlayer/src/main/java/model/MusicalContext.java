@@ -10,11 +10,13 @@ public class MusicalContext {
     private Note note;
     private Instrument instrument;
     private Volume volume;
+    private BPM bpm;
 
-    public MusicalContext(Note note, Instrument instrument, Volume volume) {
+    public MusicalContext(Note note, Instrument instrument, Volume volume, BPM bpm) {
         this.note = note;
         this.instrument = instrument;
         this.volume = volume;
+        this.bpm = bpm;
     }
 
     public Note getNote() {
@@ -29,4 +31,7 @@ public class MusicalContext {
         return volume;
     }
 
+    public BPM getBpm() {
+        return bpm;
+    }
 }
