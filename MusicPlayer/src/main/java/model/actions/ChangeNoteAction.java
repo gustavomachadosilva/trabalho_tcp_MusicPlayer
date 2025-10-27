@@ -1,15 +1,21 @@
 package model.actions;
 
 import model.MusicalContext;
+import model.notes.*;
 
 public class ChangeNoteAction extends Action{
 
-    public ChangeNoteAction(MusicalContext musicalContext) {
+    private Notes note;
+
+    public ChangeNoteAction(MusicalContext musicalContext, Notes note) {
         super(musicalContext);
+        this.note = note;
     }
 
     @Override
     public void execute() {
-        super.execute();
+        this.getMusicalContext().setPauseStatus(false);
+        this.getMusicalContext().getNote().updateNote(this.note);
+        this.getMusicalContext().setStatusLastAction(true);
     }
 }

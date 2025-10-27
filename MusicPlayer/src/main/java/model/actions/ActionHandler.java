@@ -1,12 +1,20 @@
 package model.actions;
 
 import model.MusicalContext;
+import model.notes.Notes;
 
 public class ActionHandler {
 
 
     private ActionMapper actionMapper = new ActionMapper();
-    private ChangeNoteAction changeNoteAction;
+    private ChangeNoteAction changeNoteActionToLA;
+    private ChangeNoteAction changeNoteActionToSI;
+    private ChangeNoteAction changeNoteActionToDO;
+    private ChangeNoteAction changeNoteActionToRE;
+    private ChangeNoteAction changeNoteActionToMI;
+    private ChangeNoteAction changeNoteActionToFA;
+    private ChangeNoteAction changeNoteActionToSOL;
+    private ChangeNoteAction changeNoteActionToSIB;
     private DoubleVolumeAction doubleVolumeAction;
     private IncreaseOctaveAction increaseOctaveAction;
     private LowerOctaveAction lowerOctaveAction;
@@ -17,7 +25,14 @@ public class ActionHandler {
     private PauseAction pauseAction;
 
     public ActionHandler(MusicalContext musicalContext) {
-        this.changeNoteAction = new ChangeNoteAction(musicalContext);
+        this.changeNoteActionToLA = new ChangeNoteAction(musicalContext, Notes.LA);
+        this.changeNoteActionToSI = new ChangeNoteAction(musicalContext, Notes.SI);
+        this.changeNoteActionToDO = new ChangeNoteAction(musicalContext, Notes.DO);
+        this.changeNoteActionToRE = new ChangeNoteAction(musicalContext, Notes.RE);
+        this.changeNoteActionToMI = new ChangeNoteAction(musicalContext, Notes.MI);
+        this.changeNoteActionToFA = new ChangeNoteAction(musicalContext, Notes.FA);
+        this.changeNoteActionToSOL = new ChangeNoteAction(musicalContext, Notes.SOL);
+        this.changeNoteActionToSIB = new ChangeNoteAction(musicalContext, Notes.SIB);
         this.doubleVolumeAction = new DoubleVolumeAction(musicalContext);
         this.increaseOctaveAction = new IncreaseOctaveAction(musicalContext);
         this.lowerOctaveAction = new LowerOctaveAction(musicalContext);
@@ -31,23 +46,23 @@ public class ActionHandler {
     }
 
     private void doMap() {
-        actionMapper.assignActionToAKey("A", changeNoteAction);
-        actionMapper.assignActionToAKey("B", changeNoteAction);
-        actionMapper.assignActionToAKey("C", changeNoteAction);
-        actionMapper.assignActionToAKey("D", changeNoteAction);
-        actionMapper.assignActionToAKey("E", changeNoteAction);
-        actionMapper.assignActionToAKey("F", changeNoteAction);
-        actionMapper.assignActionToAKey("G", changeNoteAction);
-        actionMapper.assignActionToAKey("H", changeNoteAction);
+        actionMapper.assignActionToAKey("A", changeNoteActionToLA);
+        actionMapper.assignActionToAKey("B", changeNoteActionToSI);
+        actionMapper.assignActionToAKey("C", changeNoteActionToDO);
+        actionMapper.assignActionToAKey("D", changeNoteActionToRE);
+        actionMapper.assignActionToAKey("E", changeNoteActionToMI);
+        actionMapper.assignActionToAKey("F", changeNoteActionToFA);
+        actionMapper.assignActionToAKey("G", changeNoteActionToSOL);
+        actionMapper.assignActionToAKey("H", changeNoteActionToSIB);
 
-        actionMapper.assignActionToAKey("a", changeNoteAction);
-        actionMapper.assignActionToAKey("b", changeNoteAction);
-        actionMapper.assignActionToAKey("c", changeNoteAction);
-        actionMapper.assignActionToAKey("d", changeNoteAction);
-        actionMapper.assignActionToAKey("e", changeNoteAction);
-        actionMapper.assignActionToAKey("f", changeNoteAction);
-        actionMapper.assignActionToAKey("g", changeNoteAction);
-        actionMapper.assignActionToAKey("h", changeNoteAction);
+        actionMapper.assignActionToAKey("a", changeNoteActionToLA);
+        actionMapper.assignActionToAKey("b", changeNoteActionToSI);
+        actionMapper.assignActionToAKey("c", changeNoteActionToDO);
+        actionMapper.assignActionToAKey("d", changeNoteActionToRE);
+        actionMapper.assignActionToAKey("e", changeNoteActionToMI);
+        actionMapper.assignActionToAKey("f", changeNoteActionToFA);
+        actionMapper.assignActionToAKey("g", changeNoteActionToSOL);
+        actionMapper.assignActionToAKey("h", changeNoteActionToSIB);
 
         actionMapper.assignActionToAKey(" ", doubleVolumeAction);
 
