@@ -38,8 +38,7 @@ public class ActionMapper {
         if (actionKeys.containsKey(key)) {
             action = actionKeys.get(key);
         } else {
-            System.out.println("Key not found!");
-            action = new Action();
+            action = new NoOperationAction();
         }
 
         return action;

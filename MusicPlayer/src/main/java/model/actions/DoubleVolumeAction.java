@@ -11,6 +11,7 @@ public class DoubleVolumeAction extends Action{
 
     @Override
     public void execute() {
+        this.getMusicalContext().setPauseStatus(false);
         Volume volume;
         volume = getMusicalContext().getVolume();
         int currentVolume = volume.getCurrentVolume();
@@ -19,6 +20,6 @@ public class DoubleVolumeAction extends Action{
         int doubledVolume = currentVolume * 2;
 
         volume.setCurrentVolume(Math.min(doubledVolume, maxVolume));
-
+        this.getMusicalContext().setStatusLastAction(false);
     }
 }

@@ -10,6 +10,7 @@ public class PauseAction extends Action {
 
     @Override
     public void execute() {
-        super.execute();
+        this.getMusicalContext().setPauseStatus(true);
+        this.getMusicalContext().setStatusLastAction(false);
     }
 }

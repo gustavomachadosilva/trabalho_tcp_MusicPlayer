@@ -1,6 +1,7 @@
 package model.actions;
 
 import model.MusicalContext;
+import model.instruments.Instruments;
 
 public class RepeatNoteAction extends Action {
 
@@ -10,6 +11,10 @@ public class RepeatNoteAction extends Action {
 
     @Override
     public void execute() {
-        super.execute();
+        this.getMusicalContext().setPauseStatus(false);
+        if(!this.getMusicalContext().getStatusLastAction()){
+            this.getMusicalContext().getInstrument().changeInstrument(Instruments.TELEFONE);
+        }
+        this.getMusicalContext().setStatusLastAction(false);
     }
 }

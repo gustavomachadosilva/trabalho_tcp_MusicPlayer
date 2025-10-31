@@ -2,6 +2,9 @@ package model.notes;
 
 public class Note {
 
+    public static final int MAX_OCTAVE = 8;
+    public static final int MIN_OCTAVE = 1;
+
     private int octave;
     private int duration;
     private int midiCode;
@@ -17,12 +20,20 @@ public class Note {
         return octave;
     }
 
+    public void setOctave(int octave) {
+        this.octave = octave;
+    }
+
     public int getDuration() {
         return duration;
     }
 
     public int getMidiCode() {
         return midiCode;
+    }
+
+    public void updateNote(Notes newNote){
+        this.midiCode = defineMidiCode(newNote, this.octave);
     }
 
     private int defineMidiCode(Notes note, int octave) {

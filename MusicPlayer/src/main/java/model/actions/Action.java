@@ -1,8 +1,9 @@
 package model.actions;
 
 import model.MusicalContext;
+import model.notes.Notes;
 
-public class Action {
+public abstract class Action {
 
     private MusicalContext musicalContext;
 
@@ -21,7 +22,5 @@ public class Action {
         this.musicalContext = musicalContext;
     }
 
-    public void execute() {
-        System.out.println("Action has not been defined!");
-    }
+    public abstract void execute();
 }

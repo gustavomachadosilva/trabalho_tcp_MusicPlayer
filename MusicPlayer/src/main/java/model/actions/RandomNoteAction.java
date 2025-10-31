@@ -1,8 +1,14 @@
 package model.actions;
 
 import model.MusicalContext;
+import model.instruments.Instruments;
+import model.notes.*;
+import java.util.Random;
 
 public class RandomNoteAction extends Action {
+
+    private static final Random RAND = new Random();
+    private static final Notes[] VALUES_ENUM = Notes.values();
 
     public RandomNoteAction(MusicalContext musicalContext) {
         super(musicalContext);
@@ -10,6 +16,9 @@ public class RandomNoteAction extends Action {
 
     @Override
     public void execute() {
-        super.execute();
+        this.getMusicalContext().setPauseStatus(false);
+        Notes randomNote = VALUES_ENUM[RAND.nextInt(VALUES_ENUM.length)];
+        this.getMusicalContext().getNote().updateNote(randomNote);
+        this.getMusicalContext().setStatusLastAction(false);
     }
 }
