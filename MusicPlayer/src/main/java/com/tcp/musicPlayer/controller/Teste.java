@@ -1,16 +1,16 @@
-package controller;
+package com.tcp.musicPlayer.controller;
 
-import model.MusicalContext;
-import model.Player;
-import model.Volume;
-import model.actions.Action;
-import model.actions.ActionHandler;
-import model.actions.ActionMapper;
-import model.inputHandlers.TextHandler;
-import model.instruments.Instrument;
-import model.instruments.Instruments;
-import model.notes.Note;
-import model.notes.Notes;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.Player;
+import com.tcp.musicPlayer.model.Volume;
+import com.tcp.musicPlayer.model.actions.Action;
+import com.tcp.musicPlayer.model.actions.ActionHandler;
+import com.tcp.musicPlayer.model.actions.ActionMapper;
+import com.tcp.musicPlayer.model.inputHandlers.TextHandler;
+import com.tcp.musicPlayer.model.instruments.Instrument;
+import com.tcp.musicPlayer.model.instruments.Instruments;
+import com.tcp.musicPlayer.model.notes.Note;
+import com.tcp.musicPlayer.model.notes.Notes;
 
 public class Teste {
 

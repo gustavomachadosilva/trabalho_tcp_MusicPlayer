@@ -1,9 +1,7 @@
-package model;
+package com.tcp.musicPlayer.model;
 
-import model.instruments.Instrument;
-import model.instruments.Instruments;
-import model.notes.Note;
-import model.notes.Notes;
+import com.tcp.musicPlayer.model.instruments.Instrument;
+import com.tcp.musicPlayer.model.notes.Note;
 
 public class MusicalContext {
 

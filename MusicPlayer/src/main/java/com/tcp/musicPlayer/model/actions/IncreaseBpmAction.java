@@ -1,7 +1,7 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
-import model.MusicalContext;
-import model.BPM;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.BPM;
 
 public class IncreaseBpmAction extends Action {
 

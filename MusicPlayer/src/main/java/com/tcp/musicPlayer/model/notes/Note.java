@@ -1,4 +1,4 @@
-package model.notes;
+package com.tcp.musicPlayer.model.notes;
 
 public class Note {
 

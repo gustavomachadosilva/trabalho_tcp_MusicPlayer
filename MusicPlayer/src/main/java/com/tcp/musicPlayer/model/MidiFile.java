@@ -1,8 +1,4 @@
-package model;
-
-import model.instruments.Instrument;
-import model.instruments.Instruments;
-import model.notes.Note;
+package com.tcp.musicPlayer.model;
 
 import javax.sound.midi.*;
 import java.io.File;

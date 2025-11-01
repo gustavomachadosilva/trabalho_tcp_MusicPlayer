@@ -1,5 +1,5 @@
-package model.inputHandlers;
-import static model.inputHandlers.Constants.*;
+package com.tcp.musicPlayer.model.inputHandlers;
+import static com.tcp.musicPlayer.model.inputHandlers.Constants.*;
 
 public class TextHandler {
 

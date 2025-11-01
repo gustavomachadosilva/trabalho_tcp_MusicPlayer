@@ -1,7 +1,7 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
-import model.MusicalContext;
-import model.notes.Note;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.notes.Note;
 
 public class IncreaseOctaveAction extends Action{
 

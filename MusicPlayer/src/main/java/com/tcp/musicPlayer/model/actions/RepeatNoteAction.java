@@ -1,7 +1,7 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
-import model.MusicalContext;
-import model.instruments.Instruments;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.instruments.Instruments;
 
 public class RepeatNoteAction extends Action {
 

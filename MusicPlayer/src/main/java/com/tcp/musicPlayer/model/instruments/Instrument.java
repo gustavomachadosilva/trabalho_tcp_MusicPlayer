@@ -1,4 +1,4 @@
-package model.instruments;
+package com.tcp.musicPlayer.model.instruments;
 
 public class Instrument {
 

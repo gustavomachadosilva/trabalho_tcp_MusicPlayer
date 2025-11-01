@@ -1,6 +1,6 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
-import model.MusicalContext;
+import com.tcp.musicPlayer.model.MusicalContext;
 
 public class PauseAction extends Action {
 
