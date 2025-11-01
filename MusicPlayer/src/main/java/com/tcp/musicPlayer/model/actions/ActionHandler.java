@@ -1,7 +1,7 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
-import model.MusicalContext;
-import model.notes.Notes;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.notes.Notes;
 
 public class ActionHandler {
 

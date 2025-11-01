@@ -1,4 +1,4 @@
-package model.inputHandlers;
+package com.tcp.musicPlayer.model.inputHandlers;
 
 public class Constants {
 

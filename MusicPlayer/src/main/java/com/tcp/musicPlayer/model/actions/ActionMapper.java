@@ -1,4 +1,4 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
 import java.util.HashMap;
 import java.util.Map;

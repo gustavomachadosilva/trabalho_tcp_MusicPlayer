@@ -1,7 +1,7 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
-import model.MusicalContext;
-import model.instruments.*;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.instruments.*;
 import java.util.Random;
 
 public class ChangeInstrumentAction extends Action {

@@ -1,4 +1,4 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
 public class NoOperationAction extends Action{
 

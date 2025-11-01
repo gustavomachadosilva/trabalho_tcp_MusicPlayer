@@ -1,4 +1,4 @@
-package model.inputHandlers;
+package com.tcp.musicPlayer.model.inputHandlers;
 
 import java.io.IOException;
 import java.nio.file.Files;

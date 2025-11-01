@@ -1,4 +1,4 @@
-package model;
+package com.tcp.musicPlayer.model;
 
 public class BPM {
 

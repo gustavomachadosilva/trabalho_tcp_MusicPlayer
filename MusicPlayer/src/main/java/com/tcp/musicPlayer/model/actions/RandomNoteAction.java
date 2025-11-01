@@ -1,8 +1,7 @@
-package model.actions;
+package com.tcp.musicPlayer.model.actions;
 
-import model.MusicalContext;
-import model.instruments.Instruments;
-import model.notes.*;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.notes.*;
 import java.util.Random;
 
 public class RandomNoteAction extends Action {
