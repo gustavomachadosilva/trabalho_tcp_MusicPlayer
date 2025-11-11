@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
-import { AudioInputText, AudioInputMargin } from "./style";
+import React, { useEffect, useRef, useState } from "react";
+import { AudioInputText, AudioInputMargin, TitleHeader } from "./style";
 import { TitleContainer, BorderWrapper } from "../style";
+import FileUploader from "../file-uploader/FileUploader";
 
 interface IProps {
   title: string;
@@ -12,11 +13,23 @@ const AudioInput: React.FC<React.PropsWithChildren<IProps>> = ({
   placeholder,
 }) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const [fileContent, setFileContent] = useState("");
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.value = fileContent;
+    }
+  }, [fileContent]);
 
   return (
     <BorderWrapper>
       <AudioInputMargin>
-        <TitleContainer>{title}</TitleContainer>
+        <TitleHeader>
+          <TitleContainer>{title}</TitleContainer>
+          <FileUploader
+            setFileContent={setFileContent}
+          />
+        </TitleHeader>
         <AudioInputText ref={inputRef} placeholder={placeholder} />
       </AudioInputMargin>
     </BorderWrapper>

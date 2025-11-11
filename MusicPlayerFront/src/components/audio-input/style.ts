@@ -9,6 +9,13 @@ export const AudioInputMargin = styled.div`
 
 `;
 
+export const TitleHeader = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+
 export const AudioInputText = styled.textarea`
   width: 100%;
   height: 70%;
