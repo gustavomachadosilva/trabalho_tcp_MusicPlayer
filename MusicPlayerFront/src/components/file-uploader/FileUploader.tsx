@@ -1,5 +1,6 @@
-import type { ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 import { FileUploaderContainer, UploadButton, UploadIcon } from "./style";
+import { useAlert } from "../../shared/hook/useAlert";
 
 interface IProps {
   setFileContent: (value: string) => void;
@@ -10,21 +11,34 @@ const FileUploader: React.FC<React.PropsWithChildren<IProps>> = ({
   setFileContent,
   buttonText,
 }) => {
+  const { setAlert, closeAlert } = useAlert();
+
   const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.currentTarget.files?.[0];
+    const inputEl = event.currentTarget;
+    const file = inputEl.files?.[0];
+
     if (file && file.type === "text/plain") {
       const reader = new FileReader();
       reader.onload = () => {
-        setFileContent(reader.result as string);
+        const content = reader.result as string;
+        setFileContent("");
+        setTimeout(() => setFileContent(content), 0);
+
+        setAlert("Arquivo indexado com sucesso!", "success");
+        inputEl.value = "";
       };
       reader.readAsText(file);
     } else {
-      alert("Por favor, envie um arquivo de texto.");
+      setAlert("Por favor, envie um arquivo de texto (.txt)", "error");
+      inputEl.value = "";
     }
   };
 
   const handleFileExplorerPopUp = () => {
-    document.getElementById("fileInput")?.click();
+    closeAlert();
+    const el = document.getElementById("fileInput") as HTMLInputElement | null;
+    if (el) el.value = "";
+    el?.click();
   };
 
   return (
