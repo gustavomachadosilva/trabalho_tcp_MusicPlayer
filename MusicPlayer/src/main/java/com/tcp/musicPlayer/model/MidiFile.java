@@ -89,12 +89,15 @@ public class MidiFile {
         }
     }
 
-    public void saveFile() {
+    public File generate() {
+        File file = new File(fileName);
         try {
-            File file = new File(fileName);
+
             MidiSystem.write(this.sequence, 1, file);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return file;
     }
 }

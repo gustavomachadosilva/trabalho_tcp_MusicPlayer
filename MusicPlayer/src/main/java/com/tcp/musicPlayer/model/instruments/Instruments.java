@@ -14,6 +14,7 @@ public enum Instruments {
     TROMPETE(56, "Trompete"),
     FLAUTA(73, "Flauta"),
     ORGAO(19, "Órgão"),
+    TELEFONE(125, "Telefone"),
     SINTETIZADOR(80, "Sintetizador");
 
     private final int midiCode;
