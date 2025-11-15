@@ -4,16 +4,10 @@ import com.tcp.musicPlayer.model.MusicGenerator;
 import com.tcp.musicPlayer.model.RequestMusic;
 import com.tcp.musicPlayer.model.ResponseBody;
 import com.tcp.musicPlayer.model.inputHandlers.FileReader;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 @RestController

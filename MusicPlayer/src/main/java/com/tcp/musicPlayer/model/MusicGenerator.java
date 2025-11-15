@@ -66,9 +66,9 @@ public class MusicGenerator {
         ActionMapper actionMapper = actionHandler.getActionMapper();
 
         while (this.textHandler.hasNextChar()) {
-            char currentChar = this.textHandler.getNextChar();
+            String currentChar = this.textHandler.getNextChar();
 
-            Action action = actionMapper.getAction(String.valueOf(currentChar));
+            Action action = actionMapper.getAction(currentChar);
             action.execute();
 
             logRegister.addRegister();
