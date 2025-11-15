@@ -29,6 +29,10 @@ public class MusicalContext {
         return instrument;
     }
 
+    public boolean isPaused() {
+        return isPaused;
+    }
+
     public Volume getVolume() {
         Volume silence = new Volume(0, this.volume.getMaxVolume());
         if(isPaused)

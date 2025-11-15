@@ -8,6 +8,8 @@ import com.tcp.musicPlayer.model.instruments.Instrument;
 import com.tcp.musicPlayer.model.instruments.Instruments;
 import com.tcp.musicPlayer.model.notes.Note;
 import com.tcp.musicPlayer.model.notes.Notes;
+import com.tcp.musicPlayer.model.register.LogRegister;
+import com.tcp.musicPlayer.model.register.MusicalRegister;
 import org.springframework.core.io.FileSystemResource;
 
 public class MusicGenerator {
@@ -21,6 +23,7 @@ public class MusicGenerator {
     private MusicalContext musicalContext;
     private ActionHandler actionHandler;
     private MidiFile midiFile;
+    private LogRegister logRegister;
 
     private final Notes initialNote = Notes.DO;
     private final int initialDuration = 500;
@@ -43,6 +46,7 @@ public class MusicGenerator {
         this.musicalContext = new MusicalContext(this.note, this.instrument, this.volume, this.bpm);
         this.actionHandler = new ActionHandler(this.musicalContext);
         this.midiFile = new MidiFile(musicalContext, fileName);
+        this.logRegister = new LogRegister(musicalContext);
     }
 
     public MidiFile getMidiFile() {
@@ -51,6 +55,10 @@ public class MusicGenerator {
 
     public String getFileName() {
         return fileName;
+    }
+
+    public LogRegister getLogRegister() {
+        return logRegister;
     }
 
     public void generateMusic() {
@@ -63,7 +71,9 @@ public class MusicGenerator {
             Action action = actionMapper.getAction(String.valueOf(currentChar));
             action.execute();
 
-            midiFile.addNote();
+            logRegister.addRegister();
+
+            midiFile.registerMusicalEvent();
         }
 
     }
