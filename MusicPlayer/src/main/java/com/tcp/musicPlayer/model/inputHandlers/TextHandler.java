@@ -24,15 +24,16 @@ public class TextHandler {
             nextChar = String.valueOf(this.text.charAt(currentChar));
 
             if (nextChar.equals("B")) {
-                char[] charArray = new char[0];
+                String testBPM = "";
 
-                if ((currentChar + 3) <= this.text.length()) {
-                    this.text.getChars(currentChar, currentChar + 3, charArray, 0);
+                if ((currentChar + 4) <= this.text.length()) {
+                    testBPM = this.text.substring(currentChar, currentChar+4);
                 }
 
-                if (String.valueOf(charArray).equals("BPM+")) {
+                if (testBPM.equals("BPM+")) {
                     nextChar = "BPM+";
-                    currentChar += 3;
+                    currentChar += 4;
+                    return nextChar;
                 }
             }
 

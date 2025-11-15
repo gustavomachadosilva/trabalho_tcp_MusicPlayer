@@ -28,7 +28,7 @@ public class MusicGenerator {
     private final Notes initialNote = Notes.DO;
     private final int initialDuration = 500;
     private final Instruments initialInstrument = Instruments.GUITARRA;
-    private final int maxVolume = 700;
+    private final int maxVolume = 127;
     private final String fileName = "teste.mid";
 
     public MusicGenerator(RequestMusic requestMusic) {
@@ -67,6 +67,7 @@ public class MusicGenerator {
 
         while (this.textHandler.hasNextChar()) {
             String currentChar = this.textHandler.getNextChar();
+            System.out.println(currentChar);
 
             Action action = actionMapper.getAction(currentChar);
             action.execute();

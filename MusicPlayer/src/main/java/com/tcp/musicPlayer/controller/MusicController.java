@@ -27,9 +27,11 @@ public class MusicController {
         }
     }
 
-    @GetMapping("/audio")
+    @PostMapping("/audio")
     public ResponseEntity<ResponseBody> getGeneratedAudio(@RequestBody RequestMusic requestMusic) throws FileNotFoundException {
         MusicGenerator musicGenerator = new MusicGenerator(requestMusic);
+        musicGenerator.generateMusic();
+
         ResponseBody responseBody = new ResponseBody(musicGenerator);
 
         return ResponseEntity.ok().body(responseBody);
