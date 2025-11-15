@@ -40,6 +40,7 @@ public class Note {
 
     public void updateNote(Notes newNote){
         this.midiCode = defineMidiCode(newNote, this.octave);
+        this.name = newNote.getName();
     }
 
     private int defineMidiCode(Notes note, int octave) {

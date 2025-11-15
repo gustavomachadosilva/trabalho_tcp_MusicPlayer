@@ -1,6 +1,7 @@
 package com.tcp.musicPlayer.model;
 
 import javax.sound.midi.*;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 public class MidiFile {
@@ -106,15 +107,15 @@ public class MidiFile {
         this.addNote();
     }
 
-    public File generate() {
-        File file = new File(fileName);
+    public byte[] generate() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
 
-            MidiSystem.write(this.sequence, 1, file);
+            MidiSystem.write(this.sequence, 1, baos);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return file;
+        return baos.toByteArray();
     }
 }

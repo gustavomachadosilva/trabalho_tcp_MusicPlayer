@@ -4,6 +4,7 @@ import com.tcp.musicPlayer.model.register.LogRegister;
 import com.tcp.musicPlayer.model.register.MusicalRegister;
 import org.springframework.core.io.InputStreamResource;
 
+import javax.sound.midi.Sequence;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
@@ -14,7 +15,7 @@ public class ResponseBody {
     private int numPauses;
     private int duration;
     private List<MusicalRegister> logRegister;
-    private InputStreamResource inputStreamResource;
+    private byte[] midi;
 
     public ResponseBody(MusicGenerator musicGenerator) {
         defineResponseBody(musicGenerator);
@@ -25,18 +26,7 @@ public class ResponseBody {
         this.numPauses = musicGenerator.getLogRegister().getNumPauses();
         this.duration = musicGenerator.getLogRegister().getDuration();
         this.logRegister = musicGenerator.getLogRegister().getLogMusicalRegister();
-
-        defineInputStreamResource(musicGenerator);
-
-    }
-
-    private void defineInputStreamResource(MusicGenerator musicGenerator) {
-        try {
-            File music = musicGenerator.getMidiFile().generate();
-            this.inputStreamResource = new InputStreamResource(new FileInputStream(music));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.midi = musicGenerator.getMidiFile().generate();
     }
 
     public int getNumNotes() {
@@ -55,7 +45,7 @@ public class ResponseBody {
         return logRegister;
     }
 
-    public InputStreamResource getInputStreamResource() {
-        return inputStreamResource;
+    public byte[] getMidi() {
+        return midi;
     }
 }
