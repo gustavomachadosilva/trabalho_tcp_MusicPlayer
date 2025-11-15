@@ -65,7 +65,7 @@ public class MidiFile {
         }
     }
 
-    public void addNote() {
+    private void addNote() {
         try {
             int midiCode = this.musicalContext.getNote().getMidiCode();
             int noteDuration = this.musicalContext.getNote().getDuration();
@@ -87,6 +87,23 @@ public class MidiFile {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void configVolume() {
+        try {
+            ShortMessage vol = new ShortMessage();
+            vol.setMessage(ShortMessage.CONTROL_CHANGE, 0 ,7, musicalContext.getVolume().getCurrentVolume());
+            this.track.add(new MidiEvent(vol, currentTick));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void registerMusicalEvent() {
+        this.changeInstrument();
+        this.setBPM();
+        this.configVolume();
+        this.addNote();
     }
 
     public File generate() {

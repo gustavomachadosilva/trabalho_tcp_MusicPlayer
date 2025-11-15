@@ -2,6 +2,7 @@ package com.tcp.musicPlayer.controller;
 
 import com.tcp.musicPlayer.model.MusicGenerator;
 import com.tcp.musicPlayer.model.RequestMusic;
+import com.tcp.musicPlayer.model.ResponseBody;
 import com.tcp.musicPlayer.model.inputHandlers.FileReader;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
@@ -33,18 +34,11 @@ public class MusicController {
     }
 
     @GetMapping("/audio")
-    public ResponseEntity<InputStreamResource> getGeneratedAudio(@RequestBody RequestMusic requestMusic) throws FileNotFoundException {
+    public ResponseEntity<ResponseBody> getGeneratedAudio(@RequestBody RequestMusic requestMusic) throws FileNotFoundException {
         MusicGenerator musicGenerator = new MusicGenerator(requestMusic);
+        ResponseBody responseBody = new ResponseBody(musicGenerator);
 
-        File music = musicGenerator.getMidiFile().generate();
-
-        InputStreamResource resource = new InputStreamResource(new FileInputStream(music));
-
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + musicGenerator.getFileName())
-                .contentType(MediaType.parseMediaType("audio/midi"))
-                .contentLength(music.length())
-                .body(resource);
+        return ResponseEntity.ok().body(responseBody);
     }
 
 }
