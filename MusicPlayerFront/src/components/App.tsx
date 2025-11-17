@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AudioService } from "../shared/services/api/audio/Audio";
-// import "./App.css";
 import Header from "./header/Header";
 import ColumnContainer from "./columns/column-container/ColumnContainer";
+import { AlertProvider } from "../shared/context/AlertContext";
+import Alert from "./alert/Alert";
 
 const App = () => {
   const { getAudio } = AudioService;
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [audioSrc, setAudioSrc] = useState("");
 
   const handleAudioRequest = async () => {
@@ -28,22 +28,14 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <AlertProvider>
+      <Alert />
       <Header
         subtitle="Digite um texto e converta-o em uma sequência de notas musicais usando parâmetros personalizáveis"
         children="Gerador de Música a partir de Texto"
       />
 
       <ColumnContainer />
-
-
-
-
-
-
-
-
-
 
       {/* <div style={{ textAlign: "center", marginTop: "3rem" }}>
         <h1>Reprodutor de Áudio 🎶</h1>
@@ -59,7 +51,7 @@ const App = () => {
           <></>
         )}
       </div> */}
-    </>
+    </AlertProvider>
   );
 };
 

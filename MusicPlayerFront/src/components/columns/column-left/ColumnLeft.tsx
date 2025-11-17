@@ -15,9 +15,8 @@ const ColumnLeft: React.FC = () => {
           title="Texto de Entrada"
         />
       </TopSideContainer>
-
       <BottomSideContainer>
-        <MusicDetails title="Parâmetros Musicais"/>
+        <MusicDetails title="Parâmetros Musicais" />
       </BottomSideContainer>
     </ColumnLeftWrapper>
   );

@@ -100,3 +100,9 @@ export const Button = styled.button`
     transform: translateY(0);
   }
 `;
+
+export const AlertContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`

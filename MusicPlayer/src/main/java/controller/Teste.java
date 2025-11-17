@@ -1,6 +1,8 @@
 package controller;
 
-import model.*;
+import model.MusicalContext;
+import model.Player;
+import model.Volume;
 import model.actions.Action;
 import model.actions.ActionHandler;
 import model.actions.ActionMapper;
@@ -17,10 +19,8 @@ public class Teste {
     Note note = new Note(Notes.DO, 5, 500);
     Instrument instrument = new Instrument(Instruments.GUITARRA);
     Volume volume = new Volume(600, 700);
-    BPM bpm = new BPM(100);
-    MusicalContext musicalContext = new MusicalContext(note, instrument, volume, bpm);
-    MidiFile midiFile = new MidiFile(musicalContext, "teste");
-    Player player = new Player(midiFile);
+    MusicalContext musicalContext = new MusicalContext(note, instrument, volume);
+    Player player = new Player(musicalContext);
     ActionHandler actionHandler = new ActionHandler(musicalContext);
 
 
