@@ -33,4 +33,8 @@ public class Player {
             e.printStackTrace();
         }
     }
+
+    public void close() {
+        sequencer.close();
+    }
 }

@@ -9,11 +9,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="MusicPlayer" />
         <module name="pom" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="pom" target="1.8" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="25" />
   </component>
 </project>

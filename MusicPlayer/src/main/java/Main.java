@@ -1,6 +1,4 @@
-import model.MusicalContext;
-import model.Player;
-import model.Volume;
+import model.*;
 import model.instruments.Instrument;
 import model.instruments.Instruments;
 import model.notes.Note;
@@ -13,10 +11,13 @@ public class Main {
         Note note = new Note(Notes.DO, 5, 500);
         Instrument instrument = new Instrument(Instruments.GUITARRA);
         Volume volume = new Volume(600, 700);
+        BPM bpm = new BPM(100);
 
-        MusicalContext musicalContext = new MusicalContext(note, instrument, volume);
+        MusicalContext musicalContext = new MusicalContext(note, instrument, volume, bpm);
 
-        Player player = new Player(musicalContext);
+        MidiFile midiFile = new MidiFile(musicalContext, "teste");
+
+        Player player = new Player(midiFile);
 
         player.play();
 
