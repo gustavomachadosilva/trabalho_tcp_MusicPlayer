@@ -16,6 +16,7 @@ public class MusicController {
     public ResponseEntity<ResponseBody> getGeneratedAudio(@RequestBody RequestMusic requestMusic) throws FileNotFoundException {
         MusicGenerator musicGenerator = new MusicGenerator(requestMusic);
         musicGenerator.generateMusic();
+        System.out.println("rodando");
 
         ResponseBody responseBody = new ResponseBody(musicGenerator);
 
