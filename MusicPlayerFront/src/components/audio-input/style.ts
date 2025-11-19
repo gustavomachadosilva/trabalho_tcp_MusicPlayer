@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AudioInputMargin = styled.div`
+export const DefaultMargin = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -9,7 +9,7 @@ export const AudioInputMargin = styled.div`
 
 `;
 
-export const TitleHeader = styled.div`
+export const TitleAudioHeader = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;

@@ -1,18 +1,29 @@
 import { Api } from "../../axios-config";
 import { type IResultOfAction } from "../../interceptors";
 
-const getAudio = async (): Promise<IResultOfAction<string>> => {
+interface IGenerateAudioRequest {
+  input: string;
+  bpm: number;
+  volume: number;
+  octave: number;
+}
+
+const postAudio = async (
+  data: IGenerateAudioRequest
+): Promise<IResultOfAction<string>> => {
   try {
-    const request = await Api().get("audio/file", {
-      responseType: "blob",
+    const request = await Api().post("audio", data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     const response: IResultOfAction<string> = {
-      Success: true,
-      Message: "Audio convertido com sucesso!",
-      Data: URL.createObjectURL(request.data),
+      success: true,
+      message: "Áudio gerado com sucesso!",
+      data: request.data,
     };
-
+    
     return response;
   } catch (error) {
     return error as IResultOfAction<string>;
@@ -20,5 +31,5 @@ const getAudio = async (): Promise<IResultOfAction<string>> => {
 };
 
 export const AudioService = {
-  getAudio,
+  postAudio,
 };

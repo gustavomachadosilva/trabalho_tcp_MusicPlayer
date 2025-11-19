@@ -1,31 +1,31 @@
-import { useEffect, useState } from "react";
-import { AudioService } from "../shared/services/api/audio/Audio";
+// import { useEffect, useState } from "react";
+// import { AudioService } from "../shared/services/api/audio/Audio";
 import Header from "./header/Header";
 import ColumnContainer from "./columns/column-container/ColumnContainer";
 import { AlertProvider } from "../shared/context/AlertContext";
 import Alert from "./alert/Alert";
 
 const App = () => {
-  const { getAudio } = AudioService;
-  const [audioSrc, setAudioSrc] = useState("");
+  // const { getAudio } = AudioService;
+  // const [audioSrc, setAudioSrc] = useState("");
 
-  const handleAudioRequest = async () => {
-    const result = await getAudio();
+  // const handleAudioRequest = async () => {
+  //   const result = await getAudio();
 
-    if (result.Success) {
-      setAudioSrc(result.Data);
-    } else {
-      console.error(result.Message);
-      // Tratar o erro adequadamente
-    }
-  };
+  //   if (result.Success) {
+  //     setAudioSrc(result.Data);
+  //   } else {
+  //     console.error(result.Message);
+  //     // Tratar o erro adequadamente
+  //   }
+  // };
 
-  useEffect(() => {
-    handleAudioRequest();
-    if (audioSrc) {
-      URL.revokeObjectURL(audioSrc);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // handleAudioRequest();
+  //   if (audioSrc) {
+  //     URL.revokeObjectURL(audioSrc);
+  //   }
+  // }, []);
 
   return (
     <AlertProvider>

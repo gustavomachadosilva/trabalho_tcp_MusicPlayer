@@ -1,32 +1,20 @@
-import type React from "react";
+// No seu componente Alert.tsx (ou similar)
+import { useAlert } from "../../shared/hook/useAlert";
 import {
   AlertBox,
-  AlertErrorIcon,
-  AlertExit,
   AlertMessage,
-  AlertOtherIcon,
+  AlertErrorIcon,
   AlertSuccessIcon,
+  AlertOtherIcon,
+  AlertExit,
 } from "./style";
-import { useAlert } from "../../shared/hook/useAlert";
 
-interface IProps {
-  message?: string;
-  alertType?: "error" | "success" | "other";
-}
+const Alert = () => {
+  const { isAlertOpen, alertType, message, closeAlert, isClosing} = useAlert();
 
-const Alert: React.FC<IProps> = ({ message, alertType }) => {
-  const {
-    isAlertOpen,
-    alertType: globalAlertType,
-    message: globalMessage,
-    closeAlert,
-  } = useAlert();
+  if (!isAlertOpen) return null;
 
-  // Usa a mensagem e o tipo de alerta das props, se fornecido, ou do contexto se não
-  const currentMessage = message || globalMessage;
-  const currentAlertType = alertType || globalAlertType;
-
-  const getIcon = (alertType: "error" | "success" | "other") => {
+  const getIcon = () => {
     switch (alertType) {
       case "error":
         return <AlertErrorIcon />;
@@ -34,23 +22,15 @@ const Alert: React.FC<IProps> = ({ message, alertType }) => {
         return <AlertSuccessIcon />;
       case "other":
         return <AlertOtherIcon />;
-      default:
-        return <AlertOtherIcon />;
     }
   };
 
   return (
-    <>
-      {isAlertOpen && (
-        <AlertBox alertType={currentAlertType}>
-          {getIcon(currentAlertType)}
-          <AlertMessage alertType={currentAlertType}>
-            {currentMessage}
-          </AlertMessage>
-          <AlertExit onClick={closeAlert} />
-        </AlertBox>
-      )}
-    </>
+    <AlertBox alertType={alertType} className={isClosing ? "fade-out" : "fade-in"}>
+      {getIcon()}
+      <AlertMessage alertType={alertType}>{message}</AlertMessage>
+      <AlertExit onClick={closeAlert} />
+    </AlertBox>
   );
 };
 

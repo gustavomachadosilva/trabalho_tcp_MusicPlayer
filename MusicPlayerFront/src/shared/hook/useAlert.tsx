@@ -7,8 +7,9 @@ interface AlertContextType {
   message: string;
   setAlert: (message: string, alertType: "error" | "success" | "other") => void;
   closeAlert: () => void;
+  isClosing: boolean;
 }
-// Hook para acessar o contexto de alerta
+
 export const useAlert = (): AlertContextType => {
   const context = useContext(AlertContext);
   if (!context) {
