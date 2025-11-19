@@ -1,9 +1,9 @@
 import type { AxiosError } from "axios";
 
 export interface IResultOfAction<T = unknown> {
-  Data: T;
-  Message: string;
-  Success: boolean;
+  data: T;
+  message: string;
+  success: boolean;
 }
 
 export const errorInterceptor = <T = unknown>(
@@ -12,15 +12,15 @@ export const errorInterceptor = <T = unknown>(
   const data = error.response?.data;
 
   const buildError = (message: string, data?: T): IResultOfAction<T> => ({
-    Data: data ?? ("" as unknown as T),
-    Message: message,
-    Success: false,
+    data: data ?? ("" as unknown as T),
+    message: message,
+    success: false,
   });
 
   switch (error.response?.status) {
     case 404:
       return Promise.reject(
-        buildError("Recurso não encontrado [404]", data?.Data)
+        buildError("Recurso não encontrado [404]", data?.data)
       );
 
     case 401:
@@ -35,6 +35,6 @@ export const errorInterceptor = <T = unknown>(
       if (error.message === "Network Error") {
         return Promise.reject(buildError("Erro de conexão com o servidor"));
       }
-      return Promise.reject(buildError("Erro inesperado", data?.Data));
+      return Promise.reject(buildError("Erro inesperado", data?.data));
   }
 };
