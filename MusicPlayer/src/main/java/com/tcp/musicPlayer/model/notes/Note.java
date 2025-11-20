@@ -5,15 +5,21 @@ public class Note {
     public static final int MAX_OCTAVE = 8;
     public static final int MIN_OCTAVE = 1;
 
+    private String name;
     private int octave;
     private int duration;
     private int midiCode;
 
     public Note(Notes note, int octave, int duration) {
+        this.name = note.getName();
         this.octave = octave;
         this.duration = duration;
 
         this.midiCode = defineMidiCode(note, octave);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getOctave() {
@@ -34,6 +40,7 @@ public class Note {
 
     public void updateNote(Notes newNote){
         this.midiCode = defineMidiCode(newNote, this.octave);
+        this.name = newNote.getName();
     }
 
     private int defineMidiCode(Notes note, int octave) {

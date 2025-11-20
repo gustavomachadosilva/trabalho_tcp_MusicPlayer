@@ -29,6 +29,10 @@ public class MusicalContext {
         return instrument;
     }
 
+    public boolean isPaused() {
+        return isPaused;
+    }
+
     public Volume getVolume() {
         Volume silence = new Volume(0, this.volume.getMaxVolume());
         if(isPaused)
@@ -51,5 +55,17 @@ public class MusicalContext {
 
     public boolean getStatusLastAction(){
         return isLastActionNote;
+    }
+
+    @Override
+    public String toString() {
+        return "MusicalContext{" +
+                "note=" + note +
+                ", instrument=" + instrument +
+                ", volume=" + volume +
+                ", bpm=" + bpm +
+                ", isPaused=" + isPaused +
+                ", isLastActionNote=" + isLastActionNote +
+                '}';
     }
 }

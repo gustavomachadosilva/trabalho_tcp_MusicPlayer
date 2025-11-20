@@ -1,6 +1,7 @@
 package com.tcp.musicPlayer.model;
 
 import javax.sound.midi.*;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 public class MidiFile {
@@ -65,7 +66,7 @@ public class MidiFile {
         }
     }
 
-    public void addNote() {
+    private void addNote() {
         try {
             int midiCode = this.musicalContext.getNote().getMidiCode();
             int noteDuration = this.musicalContext.getNote().getDuration();
@@ -89,12 +90,32 @@ public class MidiFile {
         }
     }
 
-    public void saveFile() {
+    private void configVolume() {
         try {
-            File file = new File(fileName);
-            MidiSystem.write(this.sequence, 1, file);
+            ShortMessage vol = new ShortMessage();
+            vol.setMessage(ShortMessage.CONTROL_CHANGE, 0 ,7, musicalContext.getVolume().getCurrentVolume());
+            this.track.add(new MidiEvent(vol, currentTick));
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void registerMusicalEvent() {
+        this.changeInstrument();
+        this.setBPM();
+        this.configVolume();
+        this.addNote();
+    }
+
+    public byte[] generate() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+
+            MidiSystem.write(this.sequence, 1, baos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return baos.toByteArray();
     }
 }

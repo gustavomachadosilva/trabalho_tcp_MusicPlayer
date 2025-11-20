@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 package com.tcp.musicPlayer.controller;
 
 import com.tcp.musicPlayer.model.MusicGenerator;
@@ -27,4 +26,4 @@ public class MusicController {
     }
 
 }
->>>>>>> Stashed changes
+

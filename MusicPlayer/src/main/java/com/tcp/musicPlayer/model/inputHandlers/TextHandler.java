@@ -16,16 +16,31 @@ public class TextHandler {
         this.text = text;
     }
 
-    public char getNextChar() {
+    public String getNextChar() {
+
+        String nextChar = TEXT_END;
 
         if ( this.hasNextChar()) {
-            char nextChar = this.text.charAt(currentChar);
+            nextChar = String.valueOf(this.text.charAt(currentChar));
+
+            if (nextChar.equals("B")) {
+                String testBPM = "";
+
+                if ((currentChar + 4) <= this.text.length()) {
+                    testBPM = this.text.substring(currentChar, currentChar+4);
+                }
+
+                if (testBPM.equals("BPM+")) {
+                    nextChar = "BPM+";
+                    currentChar += 4;
+                    return nextChar;
+                }
+            }
 
             this.currentChar += 1;
-            return nextChar;
         }
 
-        return TEXT_END;
+        return nextChar;
 
     }
 
