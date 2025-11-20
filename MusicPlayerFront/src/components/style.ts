@@ -17,6 +17,8 @@ export const BorderWrapper = styled.div`
 export const TitleContainer = styled.h3`
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: normal;
+  font-size: large;
+
 `;
 
 // export const SelectElement = styled.select`

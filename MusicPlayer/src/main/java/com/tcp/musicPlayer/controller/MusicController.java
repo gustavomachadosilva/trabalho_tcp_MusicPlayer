@@ -1,3 +1,4 @@
+
 package com.tcp.musicPlayer.controller;
 
 import com.tcp.musicPlayer.model.MusicGenerator;
@@ -10,6 +11,7 @@ import java.io.FileNotFoundException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class MusicController {
 
     @PostMapping("/audio")
@@ -24,3 +26,4 @@ public class MusicController {
     }
 
 }
+
