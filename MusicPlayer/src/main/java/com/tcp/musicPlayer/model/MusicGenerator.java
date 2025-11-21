@@ -29,7 +29,7 @@ public class MusicGenerator {
     private final int initialDuration = 500;
     private final Instruments initialInstrument = Instruments.GUITARRA;
     private final int maxVolume = 127;
-    private final String fileName = "teste.mid";
+    private final String fileName = "teste";
 
     public MusicGenerator(RequestMusic requestMusic) {
         this.requestMusic = requestMusic;

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class MusicController {
 
     @PostMapping("/audio")
