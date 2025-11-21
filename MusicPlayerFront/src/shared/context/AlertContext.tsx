@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 interface AlertContextType {
   isAlertOpen: boolean;
@@ -6,6 +6,7 @@ interface AlertContextType {
   message: string;
   setAlert: (message: string, alertType: "error" | "success" | "other") => void;
   closeAlert: () => void;
+  isClosing: boolean;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -18,12 +19,12 @@ export const AlertProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [alertType, setAlertType] = useState<"error" | "success" | "other">(
     "error"
   );
   const [message, setMessage] = useState("");
 
-  // Função para definir o alerta
   const setAlert = (
     message: string,
     alertType: "error" | "success" | "other"
@@ -31,16 +32,37 @@ export const AlertProvider: React.FC<React.PropsWithChildren> = ({
     setMessage(message);
     setAlertType(alertType);
     setIsAlertOpen(true);
+    setIsClosing(false);
   };
 
-  // Função para fechar o alerta
   const closeAlert = () => {
-    setIsAlertOpen(false);
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsAlertOpen(false);
+      setIsClosing(true);
+    }, 500);
   };
+
+  useEffect(() => {
+    if (isAlertOpen && !isClosing) {
+      const timer = setTimeout(() => {
+        closeAlert();
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isAlertOpen, isClosing]);
 
   return (
     <AlertContext.Provider
-      value={{ isAlertOpen, alertType, message, setAlert, closeAlert }}
+      value={{
+        isAlertOpen,
+        alertType,
+        message,
+        setAlert,
+        closeAlert,
+        isClosing,
+      }}
     >
       {children}
     </AlertContext.Provider>

@@ -19,6 +19,17 @@ export const MusicIcon = styled(IoMdMusicalNotes)`
   }
 `;
 
+export const MusicTitle = styled.span`
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 769px) {
+    display: none;
+  }
+`;
+
 export const HeaderWrapper = styled.header`
   display: flex;
   flex-direction: column;
@@ -32,7 +43,7 @@ export const HeaderWrapper = styled.header`
     padding: 1rem 0 1rem 0;
   }
 
-  h1 {
+  /* h1 {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-size: 2rem;
     margin-bottom: 0.5rem;
@@ -40,7 +51,7 @@ export const HeaderWrapper = styled.header`
     @media (max-width: 769px) {
       display: none;
     }
-  }
+  } */
 
   h2 {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
