@@ -12,6 +12,16 @@ public class MidiFile {
     private int duration;
     private int currentTick = 0;
     private String fileName;
+    private File midi;
+    private File mp3;
+
+    public File getMidi() {
+        return midi;
+    }
+
+    public File getMp3() {
+        return mp3;
+    }
 
     public MidiFile(MusicalContext musicalContext, String fileName) {
         this.musicalContext = musicalContext;
@@ -124,27 +134,19 @@ public class MidiFile {
         this.addNote();
     }
 
-    public byte[] generate() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    public void generate() {
         try {
+            midi = new File(this.fileName + ".mid");
+            mp3 = new File(this.fileName + ".mp3");
 
-            MidiSystem.write(this.sequence, 1, baos);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            MidiSystem.write(this.sequence, 1, midi);
+            System.out.println("Arquivo MIDI salvo em: " + midi.getAbsolutePath());
 
-//        this.saveToFile();
-
-        return baos.toByteArray();
-    }
-
-    public void saveToFile() {
-        try {
-            File output = new File(this.fileName + ".mid");
-            MidiSystem.write(this.sequence, 1, output);
-            System.out.println("Arquivo MIDI salvo em: " + output.getAbsolutePath());
+            MidiToMp3Converter.convertMidiToMp3(midi, mp3);
+            System.out.println("Arquivo MP3 salvo em: " + mp3.getAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }
