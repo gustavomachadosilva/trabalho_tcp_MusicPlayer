@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/api")
@@ -15,7 +16,7 @@ import java.io.FileNotFoundException;
 public class MusicController {
 
     @PostMapping("/audio")
-    public ResponseEntity<ResponseBody> getGeneratedAudio(@RequestBody RequestMusic requestMusic) throws FileNotFoundException {
+    public ResponseEntity<ResponseBody> getGeneratedAudio(@RequestBody RequestMusic requestMusic) throws IOException {
         MusicGenerator musicGenerator = new MusicGenerator(requestMusic);
         musicGenerator.generateMusic();
         System.out.println("rodando");

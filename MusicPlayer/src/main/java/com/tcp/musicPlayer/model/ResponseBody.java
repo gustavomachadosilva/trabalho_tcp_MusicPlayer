@@ -7,6 +7,10 @@ import org.springframework.core.io.InputStreamResource;
 import javax.sound.midi.Sequence;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Base64;
 import java.util.List;
 
 public class ResponseBody {
@@ -15,18 +19,23 @@ public class ResponseBody {
     private int numPauses;
     private int duration;
     private List<MusicalRegister> logRegister;
-    private byte[] midi;
+    private String midiFile;
+    private String mp3File;
 
-    public ResponseBody(MusicGenerator musicGenerator) {
+    public ResponseBody(MusicGenerator musicGenerator) throws IOException {
         defineResponseBody(musicGenerator);
     }
 
-    private void defineResponseBody(MusicGenerator musicGenerator) {
+    private void defineResponseBody(MusicGenerator musicGenerator) throws IOException {
         this.numNotes = musicGenerator.getLogRegister().getNumNotes();
         this.numPauses = musicGenerator.getLogRegister().getNumPauses();
         this.duration = musicGenerator.getLogRegister().getDuration();
         this.logRegister = musicGenerator.getLogRegister().getLogMusicalRegister();
-        this.midi = musicGenerator.getMidiFile().generate();
+
+        musicGenerator.getMidiFile().generate();
+
+        this.midiFile = fileToBase64(musicGenerator.getMidiFile().getMidi());
+        this.mp3File = fileToBase64(musicGenerator.getMidiFile().getMp3());
     }
 
     public int getNumNotes() {
@@ -45,7 +54,18 @@ public class ResponseBody {
         return logRegister;
     }
 
-    public byte[] getMidi() {
-        return midi;
+    public String getMidiFile() {
+        return midiFile;
     }
+
+    public String getMp3File() {
+        return mp3File;
+    }
+
+    private String fileToBase64(File file) throws IOException {
+        byte[] bytes = Files.readAllBytes(Path.of(file.getAbsolutePath()));
+
+        return Base64.getEncoder().encodeToString(bytes);
+    }
+
 }
