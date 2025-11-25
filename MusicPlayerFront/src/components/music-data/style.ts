@@ -222,3 +222,47 @@ export const NoteMetrics = styled.div`
     } */
   }
 `;
+
+export const MusicOptionsToggle = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 1rem;
+
+  min-width: 60px;
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon {
+    font-size: 35px;
+    cursor: pointer;
+  }
+`;
+
+export const AudioPlayer = styled.audio`
+  width: 100%; 
+  height: 60px;
+  zoom: 1.3; 
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+`;
+
+export const MusicLogAndButtonSpaceBetween = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+`
+
+export const DownloadAndPlayerContainer = styled.div`
+  padding-bottom: 2rem;
+  height: 30%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+`
