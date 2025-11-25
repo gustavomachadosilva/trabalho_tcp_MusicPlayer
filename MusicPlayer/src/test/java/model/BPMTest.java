@@ -1,8 +1,8 @@
 package model;
 
+import com.tcp.musicPlayer.model.BPM;
 import org.junit.jupiter.api.Test;
 import junit.framework.TestCase;
-import model.BPM;
 
 public class BPMTest extends TestCase {
 

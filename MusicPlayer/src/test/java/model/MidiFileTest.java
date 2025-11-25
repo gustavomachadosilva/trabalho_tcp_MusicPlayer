@@ -1,10 +1,12 @@
 package model;
-
-import model.instruments.Instrument;
-import model.instruments.Instruments;
-import model.notes.Note;
-import model.notes.Notes;
-
+import com.tcp.musicPlayer.model.BPM;
+import com.tcp.musicPlayer.model.MidiFile;
+import com.tcp.musicPlayer.model.MusicalContext;
+import com.tcp.musicPlayer.model.Volume;
+import com.tcp.musicPlayer.model.instruments.Instrument;
+import com.tcp.musicPlayer.model.instruments.Instruments;
+import com.tcp.musicPlayer.model.notes.Note;
+import com.tcp.musicPlayer.model.notes.Notes;
 import org.junit.jupiter.api.Test;
 import junit.framework.TestCase;
 
