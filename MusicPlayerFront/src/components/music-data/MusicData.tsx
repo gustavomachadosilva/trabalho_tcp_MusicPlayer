@@ -26,7 +26,8 @@ import {
 } from "./style";
 
 const MusicData: React.FC = () => {
-  const { isMusicAvailable, musicInfo } = useMusic();
+  const { isMusicAvailable,  musicInfo } = useMusic();
+
 
   return (
     <DefaultMargin>
@@ -97,6 +98,15 @@ const MusicData: React.FC = () => {
                   </NoteDetailItem>
                 ))}
             </NotesDetailsContainer>
+
+            <audio
+              controls
+              src={`data:audio/mp3;base64,${musicInfo.mp3File}`}
+              // onLoadedMetadata={(e) => {
+              
+              //   setDuration(e.currentTarget.duration);
+              // }}
+            />
           </>
         </>
       ) : (

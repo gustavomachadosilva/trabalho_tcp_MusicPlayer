@@ -29,7 +29,7 @@ const AudioInput: React.FC<React.PropsWithChildren<IProps>> = ({
         <AudioInputText
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              e.preventDefault();
+              // e.preventDefault();
             }
           }}
           onBlur={handleUpdateTypedMusic}

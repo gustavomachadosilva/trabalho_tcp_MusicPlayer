@@ -137,13 +137,13 @@ public class MidiFile {
     public void generate() {
         try {
             midi = new File(this.fileName + ".mid");
-            mp3 = new File(this.fileName + ".mp3");
+            mp3 = new File(this.fileName + "aaa.mp3");
 
             MidiSystem.write(this.sequence, 1, midi);
-            System.out.println("Arquivo MIDI salvo em: " + midi.getAbsolutePath());
+//            System.out.println("Arquivo MIDI salvo em: " + midi.getAbsolutePath());
 
             MidiToMp3Converter.convertMidiToMp3(midi, mp3);
-            System.out.println("Arquivo MP3 salvo em: " + mp3.getAbsolutePath());
+//            System.out.println("Arquivo MP3 salvo em: " + mp3.getAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
         }
