@@ -67,7 +67,7 @@ public class MusicGenerator {
 
         while (this.textHandler.hasNextChar()) {
             String currentChar = this.textHandler.getNextChar();
-            System.out.println(currentChar);
+//            System.out.println(currentChar);
 
             Action action = actionMapper.getAction(currentChar);
             action.execute();

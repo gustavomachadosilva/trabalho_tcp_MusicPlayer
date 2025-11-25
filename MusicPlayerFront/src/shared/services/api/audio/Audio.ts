@@ -17,7 +17,8 @@ export interface ILogRegisterResponse {
 export interface IGeneratedAudioResponse {
   duration: number;
   logRegister: ILogRegisterResponse[];
-  midi: string;
+  midiFile: string;
+  mp3File: string;
   numNotes: number;
   numPauses: number;
 }
