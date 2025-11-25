@@ -16,7 +16,7 @@ public class MidiToMp3Converter {
 
         // converter WAV → MP3
         ProcessBuilder lame = new ProcessBuilder(
-                "lame", wav.getAbsolutePath(), mp3.getAbsolutePath()
+                "lame", "--silent",  wav.getAbsolutePath(), mp3.getAbsolutePath()
         );
         lame.start().waitFor();
 

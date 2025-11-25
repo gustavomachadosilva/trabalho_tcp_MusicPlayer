@@ -21,9 +21,7 @@ const FileUploader: React.FC<React.PropsWithChildren<IProps>> = ({
       const reader = new FileReader();
       reader.onload = () => {
         const content = reader.result as string;
-        setFileContent("");
-        setTimeout(() => setFileContent(content), 0);
-
+        setFileContent(content);
         setAlert("Arquivo indexado com sucesso!", "success");
         inputEl.value = "";
       };
@@ -50,7 +48,7 @@ const FileUploader: React.FC<React.PropsWithChildren<IProps>> = ({
         style={{ display: "none" }}
         id="fileInput"
       />
-      <UploadButton onClick={() => handleFileExplorerPopUp()}>
+      <UploadButton onClick={handleFileExplorerPopUp}>
         {buttonText ? buttonText : <UploadIcon />}
       </UploadButton>
     </FileUploaderContainer>
