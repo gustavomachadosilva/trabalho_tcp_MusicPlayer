@@ -24,10 +24,11 @@ import {
   TitleGeneratedMusicContainer,
   TitleHeader,
 } from "./style";
+import { useState } from "react";
 
 const MusicData: React.FC = () => {
   const { isMusicAvailable,  musicInfo } = useMusic();
-
+  const [duration, setDuration] = useState(0);
 
   return (
     <DefaultMargin>
@@ -46,7 +47,7 @@ const MusicData: React.FC = () => {
             </SubtitleMusicInfo>
             <SubtitleMusicInfo>
               <FaRegClock />
-              <span>{musicInfo.numNotes && `${musicInfo.duration}s`}</span>
+              <span>{duration > 0 && `${duration}s`}</span>
             </SubtitleMusicInfo>
           </SubtitleMusicInfoContainer>
 
@@ -70,7 +71,7 @@ const MusicData: React.FC = () => {
 
               <GeneratedMusicLogContainer>
                 <GeneratedMusicLogData>
-                  {`${musicInfo.duration}s`}
+                  {`${duration}s`}
                 </GeneratedMusicLogData>
                 <GeneratedMusicLogSubtitle>Duração</GeneratedMusicLogSubtitle>
               </GeneratedMusicLogContainer>
@@ -100,19 +101,15 @@ const MusicData: React.FC = () => {
             </NotesDetailsContainer>
 
             <audio
-              controls
-              src={`data:audio/mp3;base64,${musicInfo.mp3File}`}
-              // onLoadedMetadata={(e) => {
-              
-              //   setDuration(e.currentTarget.duration);
-              // }}
-            />
+                controls
+                src={`data:audio/mp3;base64,${musicInfo.mp3File}`}
+                onLoadedMetadata={(e) => {
+                  setDuration(Number(e.currentTarget.duration.toFixed(0)));
+                }}
+              />
           </>
         </>
       ) : (
-        // <>
-        //   <audio controls style={{ minWidth: "500px" }} src={testeURL} />
-        // </>
         <NoDataFoundWrapper>
           <NoDataFoundContainer>
             <NoDataFoundIcon />

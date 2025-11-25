@@ -15,8 +15,10 @@ const AudioInput: React.FC<React.PropsWithChildren<IProps>> = ({
   setTypedMusic,
 }) => {
   const [fileContent, setFileContent] = useState("");
-  const handleUpdateTypedMusic = () => {
-    setTypedMusic(fileContent);
+
+  const updateMusic = (value: string) => {
+    setFileContent(value);
+    setTypedMusic(value);
   };
 
   return (
@@ -24,17 +26,12 @@ const AudioInput: React.FC<React.PropsWithChildren<IProps>> = ({
       <DefaultMargin>
         <TitleAudioHeader>
           <TitleContainer>{title}</TitleContainer>
-          <FileUploader setFileContent={setFileContent} />
+          <FileUploader setFileContent={updateMusic} />
         </TitleAudioHeader>
         <AudioInputText
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              // e.preventDefault();
-            }
-          }}
-          onBlur={handleUpdateTypedMusic}
           value={fileContent}
           onChange={(e) => setFileContent(e.target.value)}
+          onBlur={() => setTypedMusic(fileContent)} 
           placeholder={placeholder}
         />
       </DefaultMargin>
