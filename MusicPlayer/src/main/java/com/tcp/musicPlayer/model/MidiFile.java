@@ -12,6 +12,16 @@ public class MidiFile {
     private int duration;
     private int currentTick = 0;
     private String fileName;
+    private File midi;
+    private File mp3;
+
+    public File getMidi() {
+        return midi;
+    }
+
+    public File getMp3() {
+        return mp3;
+    }
 
     public MidiFile(MusicalContext musicalContext, String fileName) {
         this.musicalContext = musicalContext;
@@ -23,6 +33,7 @@ public class MidiFile {
 
             this.changeInstrument();
             this.setBPM();
+            this.configVolume();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,12 +48,25 @@ public class MidiFile {
         int midiCodeInstrument = this.musicalContext.getInstrument().getMidiCode();
 
         try {
+
+            // BANK SELECT MSB
+            ShortMessage bankMsb = new ShortMessage();
+            bankMsb.setMessage(ShortMessage.CONTROL_CHANGE, 0, 0, 0);
+            track.add(new MidiEvent(bankMsb, currentTick));
+
+            // BANK SELECT LSB
+            ShortMessage bankLsb = new ShortMessage();
+            bankLsb.setMessage(ShortMessage.CONTROL_CHANGE, 0, 32, 0);
+            track.add(new MidiEvent(bankLsb, currentTick));
+
             ShortMessage change = new ShortMessage();
             change.setMessage(ShortMessage.PROGRAM_CHANGE, 0, midiCodeInstrument, 0);
             this.track.add(new MidiEvent(change, this.currentTick));
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        currentTick += 10;
 
     }
 
@@ -60,7 +84,9 @@ public class MidiFile {
 
             timeMessage.setMessage(0x51, data, 3);
 
-            this.track.add(new MidiEvent(timeMessage, 0));
+            this.track.add(new MidiEvent(timeMessage, currentTick));
+
+            currentTick += 5;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,7 +101,7 @@ public class MidiFile {
 
             // Note ON
             ShortMessage on = new ShortMessage();
-            on.setMessage(ShortMessage.NOTE_ON, 0, midiCode, 0);
+            on.setMessage(ShortMessage.NOTE_ON, 0, midiCode, velocity);
             track.add(new MidiEvent(on, currentTick));
 
             // Note OFF
@@ -95,6 +121,7 @@ public class MidiFile {
             ShortMessage vol = new ShortMessage();
             vol.setMessage(ShortMessage.CONTROL_CHANGE, 0 ,7, musicalContext.getVolume().getCurrentVolume());
             this.track.add(new MidiEvent(vol, currentTick));
+            currentTick += 2;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -107,15 +134,19 @@ public class MidiFile {
         this.addNote();
     }
 
-    public byte[] generate() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    public void generate() {
         try {
+            midi = new File(this.fileName + ".mid");
+            mp3 = new File(this.fileName + "aaa.mp3");
 
-            MidiSystem.write(this.sequence, 1, baos);
+            MidiSystem.write(this.sequence, 1, midi);
+//            System.out.println("Arquivo MIDI salvo em: " + midi.getAbsolutePath());
+
+            MidiToMp3Converter.convertMidiToMp3(midi, mp3);
+//            System.out.println("Arquivo MP3 salvo em: " + mp3.getAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return baos.toByteArray();
     }
+
 }

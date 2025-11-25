@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderTitleContainer, HeaderWrapper, MusicIcon } from "./styles";
+import { HeaderTitleContainer, HeaderWrapper, MusicIcon, MusicTitle } from "./styles";
 interface IProps {
   subtitle?: string;
   title?: string;
@@ -14,7 +14,7 @@ const Header: React.FC<React.PropsWithChildren<IProps>> = ({
     <HeaderWrapper>
       <HeaderTitleContainer>
         <MusicIcon />
-        <h1>{title ? title : children}</h1>
+        <MusicTitle>{title ? title : children}</MusicTitle>
       </HeaderTitleContainer>
       {subtitle && <h2>{subtitle}</h2>}
     </HeaderWrapper>

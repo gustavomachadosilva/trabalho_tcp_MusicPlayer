@@ -26,25 +26,26 @@ export const MusicDetailsContainer = styled.div`
   margin-left: 6%;
 `;
 
-export const MusicScaleAndTunerContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 0 2rem 0;
-`;
+// export const MusicScaleAndTunerContainer = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   width: 100%;
+//   margin: 0 0 2rem 0;
+// `;
 
-export const MusicScaleAndTunerHolder = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 49%;
-  height: 100%;
-`;
+// export const MusicScaleAndTunerHolder = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 49%;
+//   height: 100%;
+// `;
 
 export const RangeInputContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 18%;
+  margin-bottom: 1rem;
 `;
 
 export const RangeInformationContainer = styled.div`

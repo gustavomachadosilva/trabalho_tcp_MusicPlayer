@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const BorderWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -17,35 +18,37 @@ export const BorderWrapper = styled.div`
 export const TitleContainer = styled.h3`
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: normal;
+  font-size: large;
+
 `;
 
-export const SelectElement = styled.select`
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  background-color: #eeeeeeff;
-  color: #111827;
-  font-size: 0.95rem;
-  font-weight: 500;
-  outline: none;
-  transition: all 0.2s ease;
+// export const SelectElement = styled.select`
+//   width: 100%;
+//   padding: 10px 14px;
+//   border: 1px solid #d1d5db;
+//   border-radius: 10px;
+//   background-color: #eeeeeeff;
+//   color: #111827;
+//   font-size: 0.95rem;
+//   font-weight: 500;
+//   outline: none;
+//   transition: all 0.2s ease;
 
-  &:hover {
-    background-color: #f3f4f6;
-  }
+//   &:hover {
+//     background-color: #f3f4f6;
+//   }
 
-  &:focus {
-    border-color: #0077ff;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-    background-color: #fff;
-  }
-`;
+//   &:focus {
+//     border-color: #0077ff;
+//     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+//     background-color: #fff;
+//   }
+// `;
 
-export const OptionElement = styled.option`
-  background-color: #fff;
-  color: #111827;
-`;
+// export const OptionElement = styled.option`
+//   background-color: #fff;
+//   color: #111827;
+// `;
 
 export const MediumLabel = styled.label`
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
