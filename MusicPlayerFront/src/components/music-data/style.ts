@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LuMusic2 } from "react-icons/lu";
+import { LuMusic2, LuInfo } from "react-icons/lu";
 
 export const MusicDataIcon = styled(LuMusic2)`
   font-size: 0.5rem;
@@ -8,7 +8,17 @@ export const MusicDataIcon = styled(LuMusic2)`
   min-height: 20px;
   background-color: transparent;
   color: black;
-  margin-right: 0.2rem;
+  margin-right: 0.5rem;
+`;
+
+export const MusicInfoIcon = styled(LuInfo)`
+  font-size: 0.5rem;
+  font-weight: 100;
+  min-width: 20px;
+  min-height: 20px;
+  background-color: transparent;
+  color: black;
+  margin-right: 0.5rem;
 `;
 
 export const TitleGeneratedMusicContainer = styled.span`
@@ -260,9 +270,79 @@ export const MusicLogAndButtonSpaceBetween = styled.div`
 export const DownloadAndPlayerContainer = styled.div`
   padding-bottom: 2rem;
   height: 30%;
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   justify-content: start;
 
 `
+export const GuideContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 95%;
+  border-left: 1px solid #e5e5e5;
+  background: #fafafa;
+`;
+
+export const GuideScrollArea = styled.div`
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: large;
+  flex: 1;
+  overflow-y: auto;
+`;
+
+export const GuideSection = styled.div`
+  margin-bottom: 28px;
+`;
+
+export const GuideTitle = styled.h3`
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
+
+
+export const GuideCodeBox = styled.pre`
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: large;
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #c9c9c9;
+  overflow-x: auto;
+  border-radius: 8px;
+`;
+
+export const GuideItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+export const GuideItemBlock = styled.div<{ width?: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 25px;
+  min-height: 25px;
+
+  width: ${({ width }) => (width ? width : "")};
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: bolder;
+  font-size: medium;
+  border: 1px solid black;
+  border-radius: 6px;
+`;
+
+export const GuideItemInfoText = styled.span`
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: medium;
+  margin-left: 40px;
+`;
