@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useRef } from "react";
 
 interface AlertContextType {
   isAlertOpen: boolean;
@@ -24,34 +24,49 @@ export const AlertProvider: React.FC<React.PropsWithChildren> = ({
   );
   const [message, setMessage] = useState("");
 
-  const setAlert = (
-    message: string,
-    alertType: "error" | "success" | "other"
-  ) => {
-    setMessage(message);
-    setAlertType(alertType);
-    setIsAlertOpen(true);
-    setIsClosing(false);
+  const autoCloseTimer = useRef<number | null>(null);
+  const animationTimer = useRef<number | null>(null);
+
+  const clearTimers = () => {
+    if (autoCloseTimer.current) {
+      window.clearTimeout(autoCloseTimer.current);
+      autoCloseTimer.current = null;
+    }
+    if (animationTimer.current) {
+      window.clearTimeout(animationTimer.current);
+      animationTimer.current = null;
+    }
   };
 
   const closeAlert = () => {
+    if (isClosing || !isAlertOpen) return;
+
     setIsClosing(true);
-    setTimeout(() => {
+    if (animationTimer.current) window.clearTimeout(animationTimer.current);
+    animationTimer.current = window.setTimeout(() => {
       setIsAlertOpen(false);
-      setIsClosing(true);
+      setIsClosing(false);
+      animationTimer.current = null;
     }, 500);
   };
 
+  const setAlert = (msg: string, type: "error" | "success" | "other") => {
+    clearTimers();
+
+    setMessage(msg);
+    setAlertType(type);
+    setIsAlertOpen(true);
+    setIsClosing(false);
+
+    autoCloseTimer.current = window.setTimeout(() => {
+      closeAlert();
+      autoCloseTimer.current = null;
+    }, 5000);
+  };
+
   useEffect(() => {
-    if (isAlertOpen && !isClosing) {
-      const timer = setTimeout(() => {
-        closeAlert();
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isAlertOpen, isClosing]);
-
+    return () => clearTimers();
+  }, []);
   return (
     <AlertContext.Provider
       value={{

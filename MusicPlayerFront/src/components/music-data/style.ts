@@ -46,12 +46,11 @@ export const NoDataFoundWrapper = styled.div`
 `;
 
 export const NoDataFoundContainer = styled.div`
-  /* background-color: red; */
   width: 100%;
   height: 70%;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+
   flex-direction: column;
 
   @media (max-width: 769px) {
@@ -91,7 +90,6 @@ export const SubtitleMusicInfoContainer = styled.div`
   display: flex;
   width: 100%;
   height: 4%;
-  /* background-color: red; */
 `;
 
 export const SubtitleMusicInfo = styled.div`
@@ -143,7 +141,7 @@ export const NotesDetailsContainer = styled.div`
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 600;
   font-size: large;
-  margin-top: 0.5rem;
+
   display: flex;
   flex-direction: column;
   max-height: 400px;
@@ -227,9 +225,6 @@ export const NoteMetrics = styled.div`
     font-size: 0.875rem;
     color: #666;
     text-align: center;
-    /* &:last-child {
-      text-align: right;
-    } */
   }
 `;
 
@@ -252,29 +247,29 @@ export const MusicOptionsToggle = styled.div`
 `;
 
 export const AudioPlayer = styled.audio`
-  width: 100%; 
+  width: 100%;
   height: 60px;
-  zoom: 1.3; 
+  zoom: 1.3;
   border-radius: 8px;
   margin-bottom: 0.5rem;
 `;
 
-export const MusicLogAndButtonSpaceBetween = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-`
+// export const MusicLogAndButtonSpaceBetween = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   margin-top: 20px;
+//   width: 100%;
+//   height: 100%;
+// `;
 
 export const DownloadAndPlayerContainer = styled.div`
+  margin-top: 1rem;
   padding-bottom: 2rem;
   height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: start;
-
-`
+`;
 export const GuideContainer = styled.div`
   padding-top: 20px;
   display: flex;
@@ -307,7 +302,6 @@ export const GuideTitle = styled.h3`
   font-size: 18px;
   margin-bottom: 10px;
 `;
-
 
 export const GuideCodeBox = styled.pre`
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

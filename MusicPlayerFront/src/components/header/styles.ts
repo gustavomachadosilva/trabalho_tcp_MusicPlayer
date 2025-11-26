@@ -43,16 +43,6 @@ export const HeaderWrapper = styled.header`
     padding: 1rem 0 1rem 0;
   }
 
-  /* h1 {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-
-    @media (max-width: 769px) {
-      display: none;
-    }
-  } */
-
   h2 {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem;

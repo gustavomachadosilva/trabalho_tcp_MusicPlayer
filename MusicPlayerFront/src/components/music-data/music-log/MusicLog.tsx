@@ -19,17 +19,18 @@ import {
   NoteText,
   SubtitleMusicInfo,
   SubtitleMusicInfoContainer,
-  MusicLogAndButtonSpaceBetween,
   TitleGeneratedMusicContainer,
   TitleHeader,
   DownloadAndPlayerContainer,
 } from "../style";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMusic } from "../../../shared/hook/useMusic";
 import { Button, ButtonContainer } from "../../style";
+import { useAlert } from "../../../shared/hook/useAlert";
 
 const MusicLog: React.FC = () => {
   const { isMusicAvailable, musicInfo } = useMusic();
+  const { setAlert } = useAlert();
   const [duration, setDuration] = useState(0);
 
   const downloadMidiFromBase64 = () => {
@@ -54,6 +55,12 @@ const MusicLog: React.FC = () => {
 
     setTimeout(() => URL.revokeObjectURL(url), 100);
   };
+
+  useEffect(() => {
+    if (isMusicAvailable) {
+      setAlert("Música gerada com sucesso!", "success");
+    }
+  }, [musicInfo.duration]);
 
   return (
     <>
@@ -100,36 +107,35 @@ const MusicLog: React.FC = () => {
                 {"Detalhes das Notas"}
               </TitleGeneratedMusicContainer>
             </TitleHeader>
-            <MusicLogAndButtonSpaceBetween>
-              <NotesDetailsContainer>
-                {musicInfo.logRegister &&
-                  musicInfo.logRegister.map((value, index) => (
-                    <NoteDetailItem key={index}>
-                      <NoteInfo>
-                        <NoteText>{index + 1}</NoteText>
-                        <NoteLabel>{value.note}</NoteLabel>
-                        <NoteMetrics>
-                          <span>{value.instrument}</span>
-                          <span>Oitava: {value.octave}</span>
-                        </NoteMetrics>
-                      </NoteInfo>
-                    </NoteDetailItem>
-                  ))}
-              </NotesDetailsContainer>
 
-              <DownloadAndPlayerContainer>
-                <AudioPlayer
-                  controls
-                  src={`data:audio/mp3;base64,${musicInfo.mp3File}`}
-                  onLoadedMetadata={(e) => {
-                    setDuration(Number(e.currentTarget.duration.toFixed(1)));
-                  }}
-                />
-                <ButtonContainer>
-                  <Button onClick={downloadMidiFromBase64}>Download</Button>
-                </ButtonContainer>
-              </DownloadAndPlayerContainer>
-            </MusicLogAndButtonSpaceBetween>
+            <NotesDetailsContainer>
+              {musicInfo.logRegister &&
+                musicInfo.logRegister.map((value, index) => (
+                  <NoteDetailItem key={index}>
+                    <NoteInfo>
+                      <NoteText>{index + 1}</NoteText>
+                      <NoteLabel>{value.note}</NoteLabel>
+                      <NoteMetrics>
+                        <span>{value.instrument}</span>
+                        <span>Oitava: {value.octave}</span>
+                      </NoteMetrics>
+                    </NoteInfo>
+                  </NoteDetailItem>
+                ))}
+            </NotesDetailsContainer>
+
+            <DownloadAndPlayerContainer>
+              <AudioPlayer
+                controls
+                src={`data:audio/mp3;base64,${musicInfo.mp3File}`}
+                onLoadedMetadata={(e) => {
+                  setDuration(Number(e.currentTarget.duration.toFixed(1)));
+                }}
+              />
+              <ButtonContainer>
+                <Button onClick={downloadMidiFromBase64}>Download</Button>
+              </ButtonContainer>
+            </DownloadAndPlayerContainer>
           </>
         </>
       ) : (

@@ -21,6 +21,5 @@ export const TopSideContainer = styled.div`
 export const BottomSideContainer = styled.div`
   height: 60%;
   width: 100%;
-  /* background-color: cyan; */
 `;
 

@@ -54,14 +54,12 @@ export const RangeInput = styled.input.attrs({ type: "range" })`
   outline: none;
   cursor: pointer;
 
-  /* Barra preenchida (WebKit) */
   &::-webkit-slider-runnable-track {
     background: #000;
     height: 6px;
     border-radius: 4px;
   }
 
-  /* Marcador (thumb) preto */
   &::-webkit-slider-thumb {
     appearance: none;
     width: 16px;

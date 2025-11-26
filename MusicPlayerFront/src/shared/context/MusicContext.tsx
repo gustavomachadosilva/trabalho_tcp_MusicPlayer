@@ -5,6 +5,7 @@ import {
 } from "../services/api/audio/Audio";
 import type { IResultOfAction } from "../services/interceptors";
 
+
 type MusicContextType = {
   text: string;
   bpm: number;

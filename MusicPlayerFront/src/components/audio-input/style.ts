@@ -28,7 +28,7 @@ export const AudioInputText = styled.textarea`
   border: 1px solid #ccc;
   border-radius: 6px;
   box-sizing: border-box;
-  vertical-align: top; /* garante o texto no topo */
+  vertical-align: top;
   text-align: left;
   outline: none;
   transition: border-color 0.2s ease;
