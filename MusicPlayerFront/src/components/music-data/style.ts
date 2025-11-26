@@ -276,10 +276,11 @@ export const DownloadAndPlayerContainer = styled.div`
 
 `
 export const GuideContainer = styled.div`
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 95%;
+  height: 90%;
+  width: 100%;
   border-left: 1px solid #e5e5e5;
   background: #fafafa;
 `;
