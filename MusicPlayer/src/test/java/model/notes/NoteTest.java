@@ -1,7 +1,6 @@
 package model.notes;
 
-import com.tcp.musicPlayer.model.notes.Note;
-import com.tcp.musicPlayer.model.notes.Notes;
+import com.tcp.musicPlayer.model.notes.*;
 import junit.framework.TestCase;
 import org.junit.jupiter.api.Test;
 
