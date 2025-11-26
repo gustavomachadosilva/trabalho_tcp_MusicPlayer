@@ -1,4 +1,4 @@
-// No seu componente Alert.tsx (ou similar)
+
 import { useAlert } from "../../shared/hook/useAlert";
 import {
   AlertBox,
