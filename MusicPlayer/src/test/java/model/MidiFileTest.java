@@ -1,72 +1,80 @@
 package model;
-import com.tcp.musicPlayer.model.BPM;
-import com.tcp.musicPlayer.model.MidiFile;
-import com.tcp.musicPlayer.model.MusicalContext;
-import com.tcp.musicPlayer.model.Volume;
-import com.tcp.musicPlayer.model.instruments.Instrument;
-import com.tcp.musicPlayer.model.instruments.Instruments;
-import com.tcp.musicPlayer.model.notes.Note;
-import com.tcp.musicPlayer.model.notes.Notes;
-import org.junit.jupiter.api.Test;
-import junit.framework.TestCase;
 
-import javax.sound.midi.Sequence;
-import javax.sound.midi.Track;
+import com.tcp.musicPlayer.model.*;
+import com.tcp.musicPlayer.model.instruments.*;
+import com.tcp.musicPlayer.model.instruments.Instrument;
+import com.tcp.musicPlayer.model.notes.*;
+
+import org.junit.jupiter.api.*;
+import javax.sound.midi.*;
+
 import java.io.File;
 
-public class MidiFileTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
-    private Note note = new Note(Notes.DO, 5, 500);
-    private Instrument instrument = new Instrument(Instruments.GUITARRA);
-    private Volume volume = new Volume(600, 700);
-    private BPM bpm = new BPM(100);
-    private MusicalContext musicalContext = new MusicalContext(note, instrument, volume, bpm);
-    private MidiFile midiFile = new MidiFile(musicalContext, "test.mid");
-    private Sequence sequence = midiFile.getSequence();
-    private Track[] tracks = sequence.getTracks();
+class MidiFileTest {
+
+    Note note = new Note(Notes.DO, 5, 500);
+    Instrument instrument = new Instrument(Instruments.GUITARRA);
+    Volume volume = new Volume(600, 700);
+    BPM bpm = new BPM(100);
+
+    MusicalContext context = new MusicalContext(note, instrument, volume, bpm);
 
     @Test
-    public void testTrackFromSequence() {
-        assertNotNull("Track deve ser criada dentro da sequência", tracks);
-        assertTrue("Deve existir ao menos uma track", tracks.length > 0);
+    void testConstructorCreatesSequenceAndTrack() {
+        MidiFile mf = new MidiFile(context, "test_file");
+
+        assertNotNull(mf.getSequence(), "Sequence não pode ser nula");
+        assertNotNull(mf.getSequence().getTracks(), "Tracks não devem ser nulos");
+
+        assertTrue(mf.getSequence().getTracks().length > 0,
+                "O construtor deve criar ao menos 1 track");
     }
 
     @Test
-    public void testTrackEvents() {
-        Track track = tracks[0];
-        assertTrue("O construtor deve adicionar eventos iniciais (BPM e instrumento)", track.size() > 0);
+    void testConstructorAddsInitialEvents() {
+        MidiFile mf = new MidiFile(context, "test_file");
+
+        Track t = mf.getSequence().getTracks()[0];
+
+        // Deve ter eventos:
+        // changeInstrument (3 eventos)
+        // setBPM (1)
+        // configVolume (1)
+        assertTrue(t.size() >= 5,
+                "O construtor deve registrar instrument, bpm e volume (>=5 eventos)");
     }
 
     @Test
-    public void testGetSequence() {
-        Sequence seq = midiFile.getSequence();
-        assertNotNull("A sequência não deve ser nula", seq);
+    void testRegisterMusicalEventAddsMoreEvents() {
+        MidiFile mf = new MidiFile(context, "test_file");
+
+        Track t = mf.getSequence().getTracks()[0];
+        int before = t.size();
+
+        mf.registerMusicalEvent();
+        int after = t.size();
+
+        assertTrue(after > before,
+                "registerMusicalEvent deve adicionar mais eventos ao track");
     }
 
     @Test
-    public void testChangeInstrument() {
-        midiFile.changeInstrument();
-        // Verifica se há eventos na track (o metodo adiciona um evento de mudança de instrumento)
-        assertTrue("Track deve ter pelo menos 1 evento após changeInstrument", midiFile.getSequence().getTracks()[0].size() > 0);
-    }
+    void testGenerateCreatesFiles() {
+        MidiFile mf = new MidiFile(context, "test_file_unit");
 
-    @Test
-    public void testAddNote() {
-        midiFile.addNote();
-        // Deve adicionar 2 eventos: NOTE_ON e NOTE_OFF
-        assertTrue("Track deve ter pelo menos 2 eventos após addNote", midiFile.getSequence().getTracks()[0].size() >= 2);
-    }
+        mf.generate();
 
-    @Test
-    public void testSaveFile() {
-        String fileName = "test_output.mid";
-        midiFile = new MidiFile(musicalContext, fileName);
-        midiFile.saveFile();
+        File midi = mf.getMidi();
+        File mp3 = mf.getMp3();
 
-        File file = new File(fileName);
-        assertTrue("Arquivo MIDI deve ser criado", file.exists());
+        assertNotNull(midi);
+        assertNotNull(mp3);
 
-        // Limpeza
-        file.delete();
+        assertTrue(midi.exists(), "Arquivo .mid deve ser criado");
+
+        // limpar arquivos após teste
+        assertTrue(midi.delete(), "Arquivo .mid deve ser deletado");
     }
 }

@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56cb22a8-4f8b-4451-8edd-d08a2306a078" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/notes/NoteTest.java" afterDir="false" />
+    <list default="true" id="c585f571-b302-4489-90d8-887bd436faf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicPlayer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicPlayer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicPlayer/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicPlayer/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicPlayer/src/main/java/controller/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicPlayer/src/main/java/controller/Teste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicPlayer/src/main/java/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicPlayer/src/main/java/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/MidiFileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/MusicalContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/MusicalContextTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/VolumeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/VolumeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/notes/NoteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicPlayer/src/test/java/model/notes/NoteTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,16 +21,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit3 Test Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -48,141 +41,147 @@
   }
 }</component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="34qMyRTFZ0c4toowuMA7qMi9ebR" />
+  <component name="ProjectId" id="35zXmdNHNYb8u9Bz30QTe1jlMWw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BPMTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BPMTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MidiFileTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MidiFileTest.testGetSequence.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MusicalContextTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.MusicalContextTest.testConstructorSetsValueCorrectly.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NoteTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PlayerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VolumeTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VolumeTest.testGetCurrentVolume.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit3&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Caio__Nunes&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/trabalho_tcp_MusicPlayer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ChangeInstrumentActionTest.executor": "Run",
+    "JUnit.DoubleVolumeActionTest.executor": "Run",
+    "JUnit.IncreaseOctaveActionTest.executor": "Run",
+    "JUnit.InstrumentTest.executor": "Run",
+    "JUnit.LogRegisterTest.executor": "Run",
+    "JUnit.LowerOctaveActionTest.executor": "Run",
+    "JUnit.MidiFileTest (1).executor": "Run",
+    "JUnit.MidiFileTest.executor": "Run",
+    "JUnit.MusicPlayerApplicationTests.executor": "Run",
+    "JUnit.MusicalContextTest.executor": "Run",
+    "JUnit.MusicalRegisterTest.executor": "Run",
+    "JUnit.RepeatNoteActionTest.executor": "Run",
+    "JUnit.RequestMusicTest.executor": "Run",
+    "JUnit.TextHandlerTest.executor": "Run",
+    "JUnit.VolumeTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Caio__Nunes",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
+      <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="model.notes" />
+      <recent name="model.actions" />
+      <recent name="model.inputHandlers" />
+      <recent name="model.instruments" />
+      <recent name="model.register" />
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VolumeTest">
-    <configuration name="BPMTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RepeatNoteActionTest">
+    <configuration name="ChangeInstrumentActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MusicPlayer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="model.actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.BPMTest" />
+      <option name="PACKAGE_NAME" value="model.actions" />
+      <option name="MAIN_CLASS_NAME" value="model.actions.ChangeInstrumentActionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MidiFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DoubleVolumeActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MusicPlayer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="model.actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.MidiFileTest" />
+      <option name="PACKAGE_NAME" value="model.actions" />
+      <option name="MAIN_CLASS_NAME" value="model.actions.DoubleVolumeActionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MusicalContextTest.testConstructorSetsValueCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IncreaseOctaveActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MusicPlayer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="model.actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.MusicalContextTest" />
-      <option name="METHOD_NAME" value="testConstructorSetsValueCorrectly" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NoteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MusicPlayer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.notes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.notes" />
-      <option name="MAIN_CLASS_NAME" value="model.notes.NoteTest" />
+      <option name="PACKAGE_NAME" value="model.actions" />
+      <option name="MAIN_CLASS_NAME" value="model.actions.IncreaseOctaveActionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VolumeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LowerOctaveActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MusicPlayer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="model.actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.VolumeTest" />
+      <option name="PACKAGE_NAME" value="model.actions" />
+      <option name="MAIN_CLASS_NAME" value="model.actions.LowerOctaveActionTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RepeatNoteActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MusicPlayer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.actions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.actions" />
+      <option name="MAIN_CLASS_NAME" value="model.actions.RepeatNoteActionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MusicPlayerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="MusicPlayer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tcp.musicPlayer.MusicPlayerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VolumeTest" />
-        <item itemvalue="JUnit.MusicalContextTest.testConstructorSetsValueCorrectly" />
-        <item itemvalue="JUnit.MidiFileTest" />
-        <item itemvalue="JUnit.NoteTest" />
-        <item itemvalue="JUnit.BPMTest (1)" />
+        <item itemvalue="JUnit.RepeatNoteActionTest" />
+        <item itemvalue="JUnit.LowerOctaveActionTest" />
+        <item itemvalue="JUnit.IncreaseOctaveActionTest" />
+        <item itemvalue="JUnit.ChangeInstrumentActionTest" />
+        <item itemvalue="JUnit.DoubleVolumeActionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -190,46 +189,21 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="56cb22a8-4f8b-4451-8edd-d08a2306a078" name="Changes" comment="" />
-      <created>1761936903994</created>
+      <changelist id="c585f571-b302-4489-90d8-887bd436faf8" name="Changes" comment="" />
+      <created>1764114038964</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1761936903994</updated>
-      <workItem from="1761937176178" duration="1092000" />
-      <workItem from="1761938506428" duration="20000" />
-      <workItem from="1761938628222" duration="4836000" />
-      <workItem from="1762022033833" duration="4060000" />
-      <workItem from="1763340590028" duration="728000" />
+      <updated>1764114038964</updated>
+      <workItem from="1764114042102" duration="579000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/trabalho_tcp_MusicPlayer$MusicalContextTest.ic" NAME="MusicalContextTest Coverage Results" MODIFIED="1761947145820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>model.*</FILTER>
-    </SUITE>
   </component>
 </project>
