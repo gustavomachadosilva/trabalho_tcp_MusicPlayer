@@ -34,28 +34,24 @@ const MusicLog: React.FC = () => {
 
   const downloadMidiFromBase64 = () => {
     const base64 = musicInfo.midiFile;
-    const fileName = "musica.mid"; // ⚡ adicione a extensão
+    const fileName = "musica.mid";
 
-    // Converte base64 para bytes
     const byteCharacters = atob(base64);
     const byteNumbers = new Array(byteCharacters.length)
       .fill(0)
       .map((_, i) => byteCharacters.charCodeAt(i));
     const byteArray = new Uint8Array(byteNumbers);
 
-    // Cria um Blob com tipo MIDI
     const blob = new Blob([byteArray], { type: "audio/midi" });
 
-    // Cria link temporário para download
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
     link.href = url;
     link.download = fileName;
-    document.body.appendChild(link); // ⚡ opcional para compatibilidade
+    document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link); // remove o link da DOM
+    document.body.removeChild(link);
 
-    // Libera memória após um pequeno delay
     setTimeout(() => URL.revokeObjectURL(url), 100);
   };
 

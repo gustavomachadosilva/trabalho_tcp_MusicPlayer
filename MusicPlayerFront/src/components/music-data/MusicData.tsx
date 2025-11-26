@@ -2,13 +2,15 @@ import { DefaultMargin } from "../audio-input/style";
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 import { FaCirclePlay } from "react-icons/fa6";
-import MusicLog from "./MusicLog/MusicLog";
+import MusicLog from "./music-log/MusicLog";
 import {
   MusicDataIcon,
+  MusicInfoIcon,
   MusicOptionsToggle,
   TitleGeneratedMusicContainer,
   TitleHeader,
 } from "./style";
+import GuideLog from "./guide-log/GuideLog";
 
 const MusicData: React.FC = () => {
   const [isInfo, setIsInfo] = useState(false);
@@ -16,9 +18,9 @@ const MusicData: React.FC = () => {
   return (
     <DefaultMargin>
       <TitleHeader marginTop="1rem">
-        <MusicDataIcon />
+        {isInfo ? <MusicInfoIcon /> : <MusicDataIcon />}
         <TitleGeneratedMusicContainer>
-          {"Notas Geradas"}
+          {isInfo ? "Guia de Mapeamento Pré-definido" : "Notas Geradas"}
         </TitleGeneratedMusicContainer>
         <MusicOptionsToggle>
           {isInfo ? (
@@ -28,7 +30,7 @@ const MusicData: React.FC = () => {
           )}
         </MusicOptionsToggle>
       </TitleHeader>
-      {isInfo ? <></> : <MusicLog />}
+      {isInfo ? <GuideLog /> : <MusicLog />}
     </DefaultMargin>
   );
 };

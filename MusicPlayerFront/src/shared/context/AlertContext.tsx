@@ -14,7 +14,6 @@ export const AlertContext = createContext<AlertContextType>(
   {} as AlertContextType
 );
 
-// Provider para o AlertContext
 export const AlertProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
