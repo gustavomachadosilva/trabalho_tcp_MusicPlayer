@@ -29,7 +29,8 @@ import { Button, ButtonContainer } from "../../style";
 import { useAlert } from "../../../shared/hook/useAlert";
 
 const MusicLog: React.FC = () => {
-  const { isMusicAvailable, musicInfo } = useMusic();
+  const { isMusicAvailable, musicInfo, justGenerated, setJustGenerated } =
+    useMusic();
   const { setAlert } = useAlert();
   const [duration, setDuration] = useState(0);
 
@@ -57,10 +58,11 @@ const MusicLog: React.FC = () => {
   };
 
   useEffect(() => {
-    if (isMusicAvailable) {
+    if (isMusicAvailable && justGenerated) {
       setAlert("Música gerada com sucesso!", "success");
+      setJustGenerated(false);
     }
-  }, [musicInfo.duration]);
+  }, [musicInfo]);
 
   return (
     <>

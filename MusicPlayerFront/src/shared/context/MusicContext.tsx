@@ -13,6 +13,8 @@ type MusicContextType = {
   volume: number;
   isMusicAvailable: boolean;
   musicInfo: IGeneratedAudioResponse;
+  justGenerated: boolean;
+  setJustGenerated: (value: boolean) => void;
   setIsMusicAvailable: (value: boolean) => void;
   setText: (value: string) => void;
   setBpm: (value: number) => void;
@@ -30,6 +32,7 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [text, setText] = useState<string>("");
+  const [justGenerated, setJustGenerated] = useState<boolean>(false);
   const [bpm, setBpm] = useState<number>(120);
   const [octave, setOctave] = useState<number>(4);
   const [volume, setVolume] = useState<number>(80);
@@ -48,6 +51,7 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({
     if (request.success) {
       setIsMusicAvailable(true);
       setMusicInfo(request.data);
+      setJustGenerated(true);
       return request;
     }
 
@@ -65,6 +69,8 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({
         octave,
         volume,
         musicInfo,
+        justGenerated,
+        setJustGenerated,
         setIsMusicAvailable,
         setText,
         setBpm,

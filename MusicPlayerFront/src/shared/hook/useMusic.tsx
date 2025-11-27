@@ -10,6 +10,8 @@ type MusicContextType = {
   volume: number;
   isMusicAvailable: boolean;
   musicInfo: IGeneratedAudioResponse;
+  justGenerated: boolean;
+  setJustGenerated: (value: boolean) => void;
   setIsMusicAvailable: (value: boolean) => void;
   setText: (value: string) => void;
   setBpm: (value: number) => void;
