@@ -254,13 +254,6 @@ export const AudioPlayer = styled.audio`
   margin-bottom: 0.5rem;
 `;
 
-// export const MusicLogAndButtonSpaceBetween = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   margin-top: 20px;
-//   width: 100%;
-//   height: 100%;
-// `;
 
 export const DownloadAndPlayerContainer = styled.div`
   margin-top: 1rem;

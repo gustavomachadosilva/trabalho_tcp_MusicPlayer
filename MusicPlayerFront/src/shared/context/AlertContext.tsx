@@ -38,11 +38,24 @@ export const AlertProvider: React.FC<React.PropsWithChildren> = ({
     }
   };
 
-  const closeAlert = () => {
-    if (isClosing || !isAlertOpen) return;
+  const scheduleClose = (delay = 5000) => {
+    clearTimers();
+    autoCloseTimer.current = window.setTimeout(() => {
+      setIsClosing(true);
+      animationTimer.current = window.setTimeout(() => {
+        setIsAlertOpen(false);
+        setIsClosing(false);
+        animationTimer.current = null;
+      }, 500);
+      autoCloseTimer.current = null;
+    }, delay);
+  };
 
+  const closeAlert = () => {
+    if (!isAlertOpen || isClosing) return;
+
+    clearTimers();
     setIsClosing(true);
-    if (animationTimer.current) window.clearTimeout(animationTimer.current);
     animationTimer.current = window.setTimeout(() => {
       setIsAlertOpen(false);
       setIsClosing(false);
@@ -51,17 +64,12 @@ export const AlertProvider: React.FC<React.PropsWithChildren> = ({
   };
 
   const setAlert = (msg: string, type: "error" | "success" | "other") => {
-    clearTimers();
-
     setMessage(msg);
     setAlertType(type);
     setIsAlertOpen(true);
     setIsClosing(false);
 
-    autoCloseTimer.current = window.setTimeout(() => {
-      closeAlert();
-      autoCloseTimer.current = null;
-    }, 5000);
+    scheduleClose(5000);
   };
 
   useEffect(() => {
